@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    
     <title>Document</title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 <body ng-app="">
     <section>
       <div class="topo"></div>
         <header>
-        <div class="footer">
+        <div class="header">
           <a href="#"><img src="../img/logo.webp" alt="logo" class="logo"></a>
           <nav class="navigation">
             <ul>
@@ -23,33 +25,115 @@
             </ul>
           </nav>
         </div>
- 
-        <form>
-          Pick a topic:
-          <input type="radio" ng-model="myVar" value="LG">LG
-          <input type="radio" ng-model="myVar" value="sansung">sansung
-          <input type="radio" ng-model="myVar" value="panasonic">panasonic
-        </form>
+      </header>
+        <h1 id="produtos_txt">Produtos</h1>
         
+        <form class="button">
+          <input  type="radio" ng-model="myVar" value="Ar condicionado">Ar condicionado
+          <input type="radio"  ng-model="myVar" value="Ar condicionado Inverter" id="ar">Ar condicionado Inverter
+          <input type="radio" ng-model="myVar" value="Multi Split">Multi Split
+          <input type="radio" ng-model="myVar" value="Energia Solar">Energia Solar
+        </form>
+        <div class="img_btn"> 
         <div ng-switch="myVar">
-          <div ng-switch-when="LG">
-             <h1>LG</h1>
-             <p>Welcome to a world of LG.</p>
+          <div ng-switch-when="Ar condicionado">
+             <h1>Ar condicionado</h1>
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
           </div>
-          <div ng-switch-when="sansung">
-             <h1>sansung</h1>
-             <p>Learn from examples.</p>
-          </div>
-          <div ng-switch-when="panasonic">
-             <h1>panasonic</h1>
-             <p>Read about panasonic.</p>
+          <div ng-switch-when="Ar condicionado Inverter">
+             <h1>Ar condicionado Inverter</h1>
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">          
+            </div>
+          <div ng-switch-when="Multi Split">
+             <h1>Multi Split</h1>
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">
+             <img src="../img/ar_condicionado.webp" alt="ar condionado">          
+            </div>
+          <div ng-switch-when="Energia Solar">
+            <h1>Energia Solar</h1>
+            <img src="../img/ar_condicionado.webp" alt="ar condionado">
+            <img src="../img/ar_condicionado.webp" alt="ar condionado">
+            <img src="../img/ar_condicionado.webp" alt="ar condionado">
+            <img src="../img/ar_condicionado.webp" alt="ar condionado">         
           </div>
         </div>
-        
-        <p>The ng-switch directive hides and shows HTML sections depending on the value of the radio buttons.</p>
-        
+      </div>
+      
+      <!-- <div class="produtos_container">
+      <div ng-app="meuApp" ng-controller="controlador" >
+        <div class="button">
+        <button  ng-click="minhaFuncao()" >Menu</button>
+        <button  ng-click="minha()" >rr</button>
 
-        </header>
+      </div>
+      <div class="exibir">
+        <div ng-show="exibir">
+            <h1>Menu:</h1>
+            <h2>Pizza</h2>
+            <h3>Pasta</h3>
+            <h4>Peixe</h4>
+          </div>
+        </div>
+        <div class="exibir">
+          <div ng-show="exibir">
+              <h1>dd:</h1>
+              <h2>dd</h2>
+              <h3>Pasta</h3>
+              <h4>Peixe</h4>
+            </div>
+          </div>
+    </div>
+    <script>
+      var app = angular.module('meuApp',[]);
+      app.controller('controlador',function($scope){
+          $scope.exibir = false;
+          $scope.minha = function(){
+              $scope.exibir = !$scope.exibir;
+          }
+      });
+  </script>
+    <script>
+        var app = angular.module('meuApp',[]);
+        app.controller('controlador',function($scope){
+            $scope.exibir = false;
+            $scope.minhaFuncao = function(){
+                $scope.exibir = !$scope.exibir;
+            }
+        });
+    </script> -->
+    
+     <!-- <div ng-app="meuApp" ng-controller="controlador" >
+      <div class="button">
+      <button  ng-click="minhaFuncao()" >Menu</button>
+    </div>
+    <div class="exibir">
+      <div ng-show="exibir">
+          <h1>Menu:</h1>
+          <h2>Pizza</h2>
+          <h3>Pasta</h3>
+          <h4>Peixe</h4>
+        </div>
+      </div>
+
+  </div> -->
+
+  <!-- <script>
+      var app = angular.module('meuApp',[]);
+      app.controller('controlador',function($scope){
+          $scope.exibir = false;
+          $scope.minhaFuncao = function(){
+              $scope.exibir = !$scope.exibir;
+          }
+      });
+  </script>  -->
       </section>
       
 </body>

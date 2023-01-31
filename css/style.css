@@ -30,8 +30,29 @@ ul{
 li{
    margin: 10px;
 }
-.footer{
+.header{
    display: flex;
    flex-direction: row;
    justify-content: space-between;
+}
+#produtos_txt{
+   display: flex;
+   justify-content: center;
+   font-size: 22pt;  
+   margin-top: 30px;
+}
+.button{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   flex-direction: row;
+
+}
+.img_btn{
+   display:flex;
+   text-align: center;
+   justify-content: center;
+}
+.img_btn img{
+   width: 200px;
 }
