@@ -3,138 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/style.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Document</title>
-</head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
-<body ng-app="">
-    <section>
-      <div class="topo"></div>
-        <header>
-        <div class="header">
-          <a href="#"><img src="../img/logo.webp" alt="logo" class="logo"></a>
-          <nav class="navigation">
-            <ul>
-              <li><a href="#home"Home>Home</a></li>
-              <li><a href="#servicos"Serviços>Serviços</a></li>
-              <li><a href="#sobre nos"Sobre nós>Sobre nós</a></li>
-              <li><a href="#produtos"Produtos>Produtos</a></li>
-              <li><a href="#contato"Contato>Contato</a></li> 
-            </ul>
-          </nav>
-        </div>
-      </header>
-        <h1 id="produtos_txt">Produtos</h1>
-        
-        <form class="button">
-          <input  type="radio" ng-model="myVar" value="Ar condicionado">Ar condicionado
-          <input type="radio"  ng-model="myVar" value="Ar condicionado Inverter" id="ar">Ar condicionado Inverter
-          <input type="radio" ng-model="myVar" value="Multi Split">Multi Split
-          <input type="radio" ng-model="myVar" value="Energia Solar">Energia Solar
-        </form>
-        <div class="img_btn"> 
-        <div ng-switch="myVar">
-          <div ng-switch-when="Ar condicionado">
-             <h1>Ar condicionado</h1>
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-          </div>
-          <div ng-switch-when="Ar condicionado Inverter">
-             <h1>Ar condicionado Inverter</h1>
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">          
-            </div>
-          <div ng-switch-when="Multi Split">
-             <h1>Multi Split</h1>
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">
-             <img src="../img/ar_condicionado.webp" alt="ar condionado">          
-            </div>
-          <div ng-switch-when="Energia Solar">
-            <h1>Energia Solar</h1>
-            <img src="../img/ar_condicionado.webp" alt="ar condionado">
-            <img src="../img/ar_condicionado.webp" alt="ar condionado">
-            <img src="../img/ar_condicionado.webp" alt="ar condionado">
-            <img src="../img/ar_condicionado.webp" alt="ar condionado">         
-          </div>
-        </div>
-      </div>
-      
-      <!-- <div class="produtos_container">
-      <div ng-app="meuApp" ng-controller="controlador" >
-        <div class="button">
-        <button  ng-click="minhaFuncao()" >Menu</button>
-        <button  ng-click="minha()" >rr</button>
-
-      </div>
-      <div class="exibir">
-        <div ng-show="exibir">
-            <h1>Menu:</h1>
-            <h2>Pizza</h2>
-            <h3>Pasta</h3>
-            <h4>Peixe</h4>
-          </div>
-        </div>
-        <div class="exibir">
-          <div ng-show="exibir">
-              <h1>dd:</h1>
-              <h2>dd</h2>
-              <h3>Pasta</h3>
-              <h4>Peixe</h4>
-            </div>
-          </div>
+</head >
+<body ng-app="meuApp" ng-controller="meuController">
+    <!-- <div class="topo"></div> -->
+    <header>
+    <div class="header">
+      <a href="#"><img src="../img/logo.webp" alt="logo" class="logo"></a>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#home"Home>Home</a></li>
+          <li><a href="#servicos"Serviços>Serviços</a></li>
+          <li><a href="#sobre nos"Sobre nós>Sobre nós</a></li>
+          <li><a href="#produtos"Produtos>Produtos</a></li>
+          <li><a href="#contato"Contato>Contato</a></li> 
+        </ul>
+      </nav>
     </div>
-    <script>
-      var app = angular.module('meuApp',[]);
-      app.controller('controlador',function($scope){
-          $scope.exibir = false;
-          $scope.minha = function(){
-              $scope.exibir = !$scope.exibir;
-          }
-      });
-  </script>
-    <script>
-        var app = angular.module('meuApp',[]);
-        app.controller('controlador',function($scope){
-            $scope.exibir = false;
-            $scope.minhaFuncao = function(){
-                $scope.exibir = !$scope.exibir;
-            }
-        });
-    </script> -->
-    
-     <!-- <div ng-app="meuApp" ng-controller="controlador" >
-      <div class="button">
-      <button  ng-click="minhaFuncao()" >Menu</button>
-    </div>
-    <div class="exibir">
-      <div ng-show="exibir">
-          <h1>Menu:</h1>
-          <h2>Pizza</h2>
-          <h3>Pasta</h3>
-          <h4>Peixe</h4>
+  </header>
+    <h1 id="produtos_txt">Produtos</h1>
+  
+    <div class="linha w50">
+        <div class="titulo" ng-mouseover="funcaoArcondicionado()">
+            Ar-condicionado
         </div>
-      </div>
+        <div class="titulo" ng-mouseover="funcaoInverter()">
+            Ar-condicionado Inverter
+        </div>
+        <div class="titulo" ng-mouseover="funcaoMultisplit()">
+            Multi Split
+        </div>
+        <div class="titulo" ng-mouseover="funcaoEnergiasolar()">
+            Energia solar
+        </div>
+    </div>
 
-  </div> -->
+    <div class="linha w95" ng-show="arcondicionado">
+        <div>
+            <img src="../img/arcondicionado.png" alt="">
+        </div>
+        <div>
+            <img src="../img/arcondicionado.png" alt="">
+        </div>
+        <div>
+            <img src="../img/arcondicionado.png" alt="">
+        </div>
+        <div>
+            <img src="../img/arcondicionado.png" alt="">
+        </div>
+        <div>
+            <img src="../img/arcondicionado.png" alt="">
+        </div>
+    </div>
 
-  <!-- <script>
-      var app = angular.module('meuApp',[]);
-      app.controller('controlador',function($scope){
-          $scope.exibir = false;
-          $scope.minhaFuncao = function(){
-              $scope.exibir = !$scope.exibir;
-          }
-      });
-  </script>  -->
+    <div class="linha w95" ng-show="inverter">
+        <div>
+            <img src="../img/inverter.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/inverter.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/inverter.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/inverter.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/inverter.webp" alt="">
+        </div>
+    </div>
+
+    <div class="linha w95" ng-show="multisplit">
+        <div>
+            <img src="../img/multisplit.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/multisplit.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/multisplit.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/multisplit.webp" alt="">
+        </div>
+        <div>
+            <img src="../img/multisplit.webp" alt="">
+        </div>
+    </div>
+
+    <div class="linha w95" ng-show="energiasolar">
+        <div>
+            <img src="../img/energiasolar.png" alt="">
+        </div>
+        <div>
+            <img src="../img/energiasolar.png" alt="">
+        </div>
+        <div>
+            <img src="../img/energiasolar.png" alt="">
+        </div>
+        <div>
+            <img src="../img/energiasolar.png" alt="">
+        </div>
+        <div>
+            <img src="../img/energiasolar.png" alt="">
+        </div>
+    </div>
       </section>
-      
+      <script>
+        var app = angular.module('meuApp', []);
+        app.controller('meuController', function($scope) {
+          $scope.arcondicionado = true;
+          $scope.inverter = false;
+          $scope.multisplit = false;
+                $scope.energiasolar = false;
+          
+          $scope.funcaoArcondicionado = function() {
+            $scope.arcondicionado = true;
+            $scope.inverter = false;
+            $scope.energiasolar = false;
+            $scope.multisplit = false;
+          }
+    
+          $scope.funcaoInverter = function() {
+            $scope.inverter = true;
+            $scope.arcondicionado = false;
+            $scope.energiasolar = false;
+            $scope.multisplit = false;
+          }
+    
+          $scope.funcaoMultisplit = function() {
+            $scope.multisplit = true;
+            $scope.arcondicionado = false;
+            $scope.inverter = false;
+                    $scope.energiasolar = false;
+          }
+    
+          $scope.funcaoEnergiasolar = function() {
+            $scope.energiasolar = true;
+            $scope.arcondicionado = false;
+            $scope.inverter = false;
+            $scope.multisplit = false;
+          }
+        });
+      </script>
 </body>
 </html>
