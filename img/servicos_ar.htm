@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head ><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",(e=>{this.persisted=e.persisted})),window.addEventListener("DOMContentLoaded",(()=>{this._preconnect3rdParties()})),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){document.hidden?e._triggerListener():(this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler))}_removeUserInteractionListener(){this.triggerEvents.forEach((e=>window.removeEventListener(e,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"))}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick")}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))}))}_renameDOMAttribute(e,t,n){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(n,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{if(t.hasAttribute("src")){const n=new URL(t.src).origin;n!==location.origin&&e.push({src:n,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}})),e=[...new Map(e.map((e=>[JSON.stringify(e),e]))).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._replayClicks()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._littleBreath(),new Promise((t=>{const n=document.createElement("script");[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type"),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t());try{e.parentNode.replaceChild(n,e)}catch(e){t()}}))}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var n=document.createDocumentFragment();e.forEach((e=>{if(e.src){const i=document.createElement("link");i.href=e.src,i.rel=t,"preconnect"!==t&&(i.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(i.crossOrigin=!0),e.crossOrigin&&(i.crossOrigin=e.crossOrigin),n.appendChild(i)}})),document.head.appendChild(n)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),await this._littleBreath();const e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript,i=document.createRange(),r=n.parentElement;let o=e.get(n);void 0===o&&(o=n.nextSibling,e.set(n,o));const s=document.createDocumentFragment();i.setStart(s,0),s.appendChild(i.createContextualFragment(t)),r.insertBefore(s,o)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise((e=>setTimeout(e))):new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v18.6 (Yoast SEO v20.1) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS -</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C400i%2C600%2C700&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C400i%2C600%2C700&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source%20Sans%20Pro%3A400%2C400i%2C600%2C700&#038;display=swap" /></noscript>
+	<meta name="description" content="Garanta agora a melhor Instalação profissional de Ar condicionado Split Inverter 12.000 / 9.000 BTUS com garantia." />
+	<link rel="canonical" href="https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/" />
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS" />
+	<meta property="og:description" content="Garanta agora a melhor Instalação profissional de Ar condicionado Split Inverter 12.000 / 9.000 BTUS com garantia." />
+	<meta property="og:url" content="https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/" />
+	<meta property="og:site_name" content="Instalação e manutenção de ar condicionados | SfriAr" />
+	<meta property="article:modified_time" content="2022-11-11T02:44:10+00:00" />
+	<meta property="og:image" content="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png" />
+	<meta property="og:image:width" content="1600" />
+	<meta property="og:image:height" content="1193" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Est. tempo de leitura" />
+	<meta name="twitter:data1" content="2 minutos" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/","url":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/","name":"Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS -","isPartOf":{"@id":"https://www.sfriarcondicionado.com.br/#website"},"primaryImageOfPage":{"@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#primaryimage"},"image":{"@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#primaryimage"},"thumbnailUrl":"https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png","datePublished":"2018-03-26T03:31:09+00:00","dateModified":"2022-11-11T02:44:10+00:00","description":"Garanta agora a melhor Instalação profissional de Ar condicionado Split Inverter 12.000 / 9.000 BTUS com garantia.","breadcrumb":{"@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/"]}]},{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#primaryimage","url":"https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png","contentUrl":"https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png","width":1600,"height":1193,"caption":"Instalação e Manutenção de ar condicionado"},{"@type":"BreadcrumbList","@id":"https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.sfriarcondicionado.com.br/"},{"@type":"ListItem","position":2,"name":"Compre seu produto ou serviço na nossa Loja virtual","item":"https://www.sfriarcondicionado.com.br/loja/"},{"@type":"ListItem","position":3,"name":"Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS"}]},{"@type":"WebSite","@id":"https://www.sfriarcondicionado.com.br/#website","url":"https://www.sfriarcondicionado.com.br/","name":"Instalação e manutenção de ar condicionados | SfriAr","description":"Instalação e Manutenção de Ar condicionados em Goiânia, Goiás e Brasil","publisher":{"@id":"https://www.sfriarcondicionado.com.br/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.sfriarcondicionado.com.br/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https://www.sfriarcondicionado.com.br/#organization","name":"Sfriar condicionado","url":"https://www.sfriarcondicionado.com.br/","logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://www.sfriarcondicionado.com.br/#/schema/logo/image/","url":"https://www.sfriarcondicionado.com.br/wp-content/uploads/2019/09/Sfriar_200_2-1-1.png","contentUrl":"https://www.sfriarcondicionado.com.br/wp-content/uploads/2019/09/Sfriar_200_2-1-1.png","width":200,"height":52,"caption":"Sfriar condicionado"},"image":{"@id":"https://www.sfriarcondicionado.com.br/#/schema/logo/image/"}}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.sfriarcondicionado.com.br' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//use.fontawesome.com' />
+<link rel='dns-prefetch' href='//pagead2.googlesyndication.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Feed para Instalação e manutenção de ar condicionados | SfriAr &raquo;" href="https://www.sfriarcondicionado.com.br/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Instalação e manutenção de ar condicionados | SfriAr &raquo;" href="https://www.sfriarcondicionado.com.br/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Instalação e manutenção de ar condicionados | SfriAr &raquo; Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS" href="https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/feed/" />
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link data-minify="1" rel='stylesheet' id='genesis-blocks-style-css-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css?ver=1668973025' media='all' />
+<link data-minify="1" rel='stylesheet' id='genesis-sample-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/themes/genesis-sample/style.css?ver=1668973025' media='all' />
+<style id='genesis-sample-inline-css'>
+
+		.wp-custom-logo .site-container .title-area {
+			max-width: 150px;
+		}
+		
+		.wp-custom-logo .title-area {
+			padding-top: 15.5px;
+		}
+		
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.sfriarcondicionado.com.br/wp-includes/css/dist/block-library/style.min.css?ver=6.1.1' media='all' />
+<link data-minify="1" rel='stylesheet' id='wc-blocks-vendors-style-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=1668973025' media='all' />
+<link data-minify="1" rel='stylesheet' id='wc-blocks-style-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=1668973025' media='all' />
+<link rel='stylesheet' id='classic-theme-styles-css' href='https://www.sfriarcondicionado.com.br/wp-includes/css/classic-themes.min.css?ver=1' media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--theme-primary: #0073e5;--wp--preset--color--theme-secondary: #0073e5;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 12px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 20px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 18px;--wp--preset--font-size--larger: 24px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='photoswipe-css' href='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/css/photoswipe/photoswipe.min.css?ver=7.3.0' media='all' />
+<link rel='stylesheet' id='photoswipe-default-skin-css' href='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css?ver=7.3.0' media='all' />
+<link data-minify="1" rel='stylesheet' id='woocommerce-layout-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=1668973025' media='all' />
+<link data-minify="1" rel='stylesheet' id='woocommerce-smallscreen-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=1668973025' media='only screen and (max-width: 860px)' />
+<link data-minify="1" rel='stylesheet' id='woocommerce-general-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=1668973025' media='all' />
+<link data-minify="1" rel='stylesheet' id='genesis-sample-woocommerce-styles-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/themes/genesis-sample/lib/woocommerce/genesis-sample-woocommerce.css?ver=1668973025' media='screen' />
+<style id='woocommerce-inline-inline-css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+
+<link data-minify="1" rel='stylesheet' id='dashicons-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-includes/css/dashicons.min.css?ver=1668973025' media='all' />
+<link data-minify="1" rel='stylesheet' id='genesis-sample-gutenberg-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/themes/genesis-sample/lib/gutenberg/front-end.css?ver=1668973025' media='all' />
+<style id='genesis-sample-gutenberg-inline-css'>
+.ab-block-post-grid .ab-post-grid-items h2 a:hover {
+	color: #0073e5;
+}
+
+.site-container .wp-block-button .wp-block-button__link {
+	background-color: #0073e5;
+}
+
+.wp-block-button .wp-block-button__link:not(.has-background),
+.wp-block-button .wp-block-button__link:not(.has-background):focus,
+.wp-block-button .wp-block-button__link:not(.has-background):hover {
+	color: #ffffff;
+}
+
+.site-container .wp-block-button.is-style-outline .wp-block-button__link {
+	color: #0073e5;
+}
+
+.site-container .wp-block-button.is-style-outline .wp-block-button__link:focus,
+.site-container .wp-block-button.is-style-outline .wp-block-button__link:hover {
+	color: #2396ff;
+}		.site-container .has-small-font-size {
+			font-size: 12px;
+		}		.site-container .has-normal-font-size {
+			font-size: 18px;
+		}		.site-container .has-large-font-size {
+			font-size: 20px;
+		}		.site-container .has-larger-font-size {
+			font-size: 24px;
+		}		.site-container .has-theme-primary-color,
+		.site-container .wp-block-button .wp-block-button__link.has-theme-primary-color,
+		.site-container .wp-block-button.is-style-outline .wp-block-button__link.has-theme-primary-color {
+			color: #0073e5;
+		}
+
+		.site-container .has-theme-primary-background-color,
+		.site-container .wp-block-button .wp-block-button__link.has-theme-primary-background-color,
+		.site-container .wp-block-pullquote.is-style-solid-color.has-theme-primary-background-color {
+			background-color: #0073e5;
+		}		.site-container .has-theme-secondary-color,
+		.site-container .wp-block-button .wp-block-button__link.has-theme-secondary-color,
+		.site-container .wp-block-button.is-style-outline .wp-block-button__link.has-theme-secondary-color {
+			color: #0073e5;
+		}
+
+		.site-container .has-theme-secondary-background-color,
+		.site-container .wp-block-button .wp-block-button__link.has-theme-secondary-background-color,
+		.site-container .wp-block-pullquote.is-style-solid-color.has-theme-secondary-background-color {
+			background-color: #0073e5;
+		}
+</style>
+<link data-minify="1" rel='stylesheet' id='font-awesome-official-css' href='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/releases/v5.13.0/css/all.css?ver=1668973025' media='all' crossorigin="anonymous" />
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:url(https://www.sfriarcondicionado.com.br/wp-content/plugins/wp-rocket/assets/img/youtube.png) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}.wp-embed-responsive .wp-has-aspect-ratio .rll-youtube-player{position:absolute;padding-bottom:0;width:100%;height:100%;top:0;bottom:0;left:0;right:0}
+</style>
+<script src='https://www.sfriarcondicionado.com.br/wp-includes/js/jquery/jquery.min.js?ver=3.6.1' id='jquery-core-js'></script>
+<script src='https://www.sfriarcondicionado.com.br/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+
+<!-- Snippet do Google Analytics adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" src='https://www.googletagmanager.com/gtag/js?id=UA-159264274-1' id='google_gtagjs-js' async></script>
+<script type="rocketlazyloadscript" id='google_gtagjs-js-after'>
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag('set', 'linker', {"domains":["www.sfriarcondicionado.com.br"]} );
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "UA-159264274-1", {"anonymize_ip":true});
+</script>
+
+<!-- Finalizar o snippet do Google Analytics adicionado pelo Site Kit -->
+<link rel="https://api.w.org/" href="https://www.sfriarcondicionado.com.br/wp-json/" /><link rel="alternate" type="application/json" href="https://www.sfriarcondicionado.com.br/wp-json/wp/v2/product/2679" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.sfriarcondicionado.com.br/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.sfriarcondicionado.com.br/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 6.1.1" />
+<meta name="generator" content="WooCommerce 7.3.0" />
+<link rel='shortlink' href='https://www.sfriarcondicionado.com.br/?p=2679' />
+<link rel="alternate" type="application/json+oembed" href="https://www.sfriarcondicionado.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.sfriarcondicionado.com.br%2Floja%2Fservicos%2Finstalacao-de-ar-condicionado%2Finstalacao-de-ar-condicionado-split-inverter-12000-9000-btus%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.sfriarcondicionado.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.sfriarcondicionado.com.br%2Floja%2Fservicos%2Finstalacao-de-ar-condicionado%2Finstalacao-de-ar-condicionado-split-inverter-12000-9000-btus%2F&#038;format=xml" />
+<meta name="generator" content="Site Kit by Google 1.93.0" /><link rel="pingback" href="https://www.sfriarcondicionado.com.br/xmlrpc.php" />
+<script type="rocketlazyloadscript" data-minify="1" async custom-element="amp-analytics" src="https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/v0/amp-analytics-0.1.js?ver=1668973026"></script>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	
+<!-- Snippet do Google Adsense adicionado pelo Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<!-- Finalizar o snippet do Google Adsense adicionado pelo Site Kit -->
+<meta name="generator" content="Elementor 3.11.0; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, e_font_icon_svg, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+
+<!-- Snippet do Google Adsense adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8445408365455271&amp;host=ca-host-pub-2644536267352236" crossorigin="anonymous"></script>
+
+<!-- Finalizar o snippet do Google Adsense adicionado pelo Site Kit -->
+<link rel="icon" href="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/cropped-manutenção-de-ar-condicionado-em-goiânia-1-75x75.png" sizes="32x32" />
+<link rel="icon" href="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/cropped-manutenção-de-ar-condicionado-em-goiânia-1-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/cropped-manutenção-de-ar-condicionado-em-goiânia-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/cropped-manutenção-de-ar-condicionado-em-goiânia-1-300x300.png" />
+		<style id="wp-custom-css">
+			.amp-wp-6a19fc1 {
+    display: none !important;
+}
+
+.aligncenter .wp-block-button {
+	margin:0 auto !important;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+<body id="topo" class="product-template-default single single-product postid-2679 wp-custom-logo wp-embed-responsive theme-genesis woocommerce woocommerce-page woocommerce-no-js header-full-width full-width-content genesis-breadcrumbs-visible genesis-footer-widgets-hidden has-no-blocks elementor-default elementor-kit-5346"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><div class="site-container"><ul class="genesis-skip-link"><li><a href="#genesis-nav-primary" class="screen-reader-shortcut"> Pular para navegação primária</a></li><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to main content</a></li></ul><div class="before-header widget-area"><div class="fix-content-wrap"><div class="before-header-left" class="widget-area"><section id="text-2" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div class="wpb_column vc_column_container vc_col-sm-6 vc_hidden-xs">
+<div class="vc_column-inner vc_custom_1459169239492">
+<div class="wpb_wrapper">
+<p class="vc_custom_heading vc_custom_1521954891692">Empresa de Instalação e manutenção de ar condicionados</p>
+</div>
+</div>
+</div>
+</div>
+		</div></section>
+</div><div class="before-header-right" class="widget-area"><section id="text-3" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><p>Atendimento: <a href="https://web.whatsapp.com/send?phone=+556234341359&amp;text=Ol%C3%A1,%20tenho%20interesse" target="_blank" rel="noopener">(62) 3434-1359</a> <i class="fab fa-whatsapp"></i> | <a href="/carrinho" title="Vá para seu carrinho de compras">Carrinho de compras <i class="fas fa-shopping-bag"></i></a></p>
+</div>
+		</div></section>
+</div></div></div><header class="site-header"><div class="wrap"><div class="title-area"><a href="https://www.sfriarcondicionado.com.br/" class="custom-logo-link" rel="home"><img width="200" height="52" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%2052'%3E%3C/svg%3E" class="custom-logo" alt="Logo SfriAr Condicionado" decoding="async" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2019/09/Sfriar_200_2-1-1.png" /><noscript><img width="200" height="52" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2019/09/Sfriar_200_2-1-1.png" class="custom-logo" alt="Logo SfriAr Condicionado" decoding="async" /></noscript></a><p class="site-title">Instalação e manutenção de ar condicionados | SfriAr</p><p class="site-description">Instalação e Manutenção de Ar condicionados em Goiânia, Goiás e Brasil</p></div><nav class="nav-primary" aria-label="Principal" id="genesis-nav-primary"><div class="wrap"><ul id="menu-main-menu" class="menu genesis-nav-menu menu-primary js-superfish"><li id="menu-item-3390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3390"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/"><span >Sobre nós</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-4042" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4042"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/"><span >Filiais</span></a>
+	<ul class="sub-menu">
+		<li id="menu-item-5600" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5600"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/empresa-de-ar-condicionado-em-rio-verde-go/"><span >Rio Verde -GO</span></a></li>
+		<li id="menu-item-4044" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4044"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/ar-condicionado-goiania/"><span >Matriz &#8211; Goiânia</span></a></li>
+		<li id="menu-item-4043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4043"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/servicos-para-ar-condicionado-em-anapolis/"><span >Anápolis &#8211; GO</span></a></li>
+		<li id="menu-item-5676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5676"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/empresa-de-ar-condicionado-em-senador-canedo/"><span >Senador Canedo &#8211; GO</span></a></li>
+		<li id="menu-item-4100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4100"><a href="https://www.sfriarcondicionado.com.br/sobre-nos/filiais/servicos-para-ar-condicionado-em-palmas-to/"><span >Palmas/TO</span></a></li>
+	</ul>
+</li>
+	<li id="menu-item-3395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3395"><a href="https://www.sfriarcondicionado.com.br/garantia/"><span >Garantia</span></a></li>
+	<li id="menu-item-3396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3396"><a href="https://www.sfriarcondicionado.com.br/faq/"><span >Perguntas frequentes</span></a></li>
+</ul>
+</li>
+<li id="menu-item-3391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3391"><a href="https://www.sfriarcondicionado.com.br/servicos/"><span >Serviços</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-3393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3393"><a href="https://www.sfriarcondicionado.com.br/servicos/assistencia-tecnica/"><span >Assistência técnica</span></a></li>
+	<li id="menu-item-3394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3394"><a href="https://www.sfriarcondicionado.com.br/servicos/ar-condicionado/"><span >Instalação de Ar condicionados</span></a></li>
+	<li id="menu-item-3822" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3822"><a href="https://www.sfriarcondicionado.com.br/instalacao-de-dutos/"><span >Instalação de dutos</span></a></li>
+	<li id="menu-item-3803" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3803"><a href="https://www.sfriarcondicionado.com.br/instalacao-de-vrf-e-vrv/"><span >Instalação de VRF e VRV</span></a></li>
+	<li id="menu-item-3392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3392"><a href="https://www.sfriarcondicionado.com.br/servicos/manutencoes/"><span >Manutenções</span></a></li>
+	<li id="menu-item-3828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3828"><a href="https://www.sfriarcondicionado.com.br/pre-instalacao-e-infraestrutura-de-ar-condicionado/"><span >Pré-instalação e infraestrutura</span></a></li>
+</ul>
+</li>
+<li id="menu-item-3397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children current_page_parent menu-item-3397"><a href="https://www.sfriarcondicionado.com.br/loja/"><span >Loja online</span></a>
+<ul class="sub-menu">
+	<li id="menu-item-5651" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5651"><a href="https://loja.sfriarcondicionado.com.br/"><span >Ar Condicionados</span></a></li>
+</ul>
+</li>
+<li id="menu-item-3398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3398"><a href="https://www.sfriarcondicionado.com.br/clientes/"><span >Clientes</span></a></li>
+<li id="menu-item-3388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3388"><a href="https://www.sfriarcondicionado.com.br/dicas/"><span >Dicas</span></a></li>
+<li id="menu-item-3389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3389"><a href="https://www.sfriarcondicionado.com.br/contato/"><span >Contato</span></a></li>
+</ul></div></nav></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content" id="genesis-content"><div class="breadcrumb">Você está em: <span class="breadcrumb-link-wrap"><a class="breadcrumb-link" href="https://www.sfriarcondicionado.com.br/"><span class="breadcrumb-link-text-wrap">Home</span></a><meta ></span> <span aria-label="breadcrumb separator">/</span> <a href="https://www.sfriarcondicionado.com.br/loja-virtual/servicos/" title="Serviços">Serviços</a> <span aria-label="breadcrumb separator">/</span> <a href="https://www.sfriarcondicionado.com.br/loja-virtual/servicos/instalacao-de-ar-condicionado/" title="Instalação">Instalação</a> <span aria-label="breadcrumb separator">/</span> Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS</div><div class="woocommerce-notices-wrapper"></div>
+			<div id="product-2679" class="post-2679 product type-product status-publish has-post-thumbnail product_cat-instalacao-de-ar-condicionado product_cat-servicos product_tag-ar-condicionado-split product_tag-instalacao-de-ar-condicionado product_tag-instalacao-de-ar-condicionado-split entry first instock shipping-taxable purchasable product-type-simple">
+				<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style="opacity: 0; transition: opacity .25s ease-in-out;">
+	<figure class="woocommerce-product-gallery__wrapper">
+		<div data-thumb="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-180x180.png" data-thumb-alt="Instalação e Manutenção de ar condicionado" class="woocommerce-product-gallery__image"><img width="655" height="488" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-655x488.png" class="wp-post-image" alt="Instalação e Manutenção de ar condicionado" decoding="async" title="Instalação e Manutenção de ar condicionado" data-caption="" data-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png" data-large_image="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png" data-large_image_width="1600" data-large_image_height="1193" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-655x488.png 655w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-300x224.png 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-1024x764.png 1024w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-768x573.png 768w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1-1536x1145.png 1536w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2021/01/ar-sfriar-reduzida-min1.png 1600w" sizes="(max-width: 655px) 100vw, 655px" /></div><div data-thumb="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1-180x180.jpg" data-thumb-alt="Instalação de ar condicionado split Goiânia" class="woocommerce-product-gallery__image"><img width="655" height="488" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1-655x488.jpg" class="" alt="Instalação de ar condicionado split Goiânia" decoding="async" title="Instalação de ar condicionado split Goiânia" data-caption="Instalação de ar condicionado split Goiânia" data-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1.jpg" data-large_image="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1.jpg" data-large_image_width="900" data-large_image_height="671" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1-655x488.jpg 655w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1-300x224.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1-768x573.jpg 768w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/03/Instalação-de-ar-condicionado-split-Goiânia-1.jpg 900w" sizes="(max-width: 655px) 100vw, 655px" /></div>	</figure>
+</div>
+
+				<div class="summary">
+					<h1 class="product_title entry-title">Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS</h1><p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#82;&#36;</span>650,00</bdi></span></p>
+<div class="woocommerce-product-details__short-description">
+	<div><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Nós da </span></span></span></span><strong><a href="https://www.sfriarcondicionado.com.br/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SfriAr Engenharia e Climatização</span></span></span></span></a></strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"> somos capacitados para executar o serviço de </span></span></span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS em Goiânia, Goiás e Brasil. Oferecemos garantia e qualidade do serviço prestado referente a instalação, com a melhor mão de obra profissional do mercado e técnicos capacitados para execução total de sua obra. </span></span></span></span></div>
+<div>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Ou seja, contamos com auxílio das maiores fabricantes do mercado para entregar com agilidade e prestatividade o serviço solicitado.</span></span></span></span></p>
+<p>&nbsp;</p>
+</div>
+</div>
+
+	
+	<form class="cart" action="https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/" method="post" enctype='multipart/form-data'>
+		
+		<div class="quantity">
+		<label class="screen-reader-text" for="quantity_63ebbd5e856b6">Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS quantidade</label>
+	<input
+		type="number"
+				id="quantity_63ebbd5e856b6"
+		class="input-text qty text"
+		name="quantity"
+		value="1"
+		title="Qtd"
+		size="4"
+		min="1"
+		max=""
+					step="1"
+			placeholder=""
+			inputmode="numeric"
+			autocomplete="off"
+			/>
+	</div>
+
+		<button type="submit" name="add-to-cart" value="2679" class="single_add_to_cart_button button alt wp-element-button">Comprar</button>
+
+			</form>
+
+	
+<div class="product_meta">
+
+	
+	
+	<span class="posted_in">Categorias: <a href="https://www.sfriarcondicionado.com.br/loja-virtual/servicos/instalacao-de-ar-condicionado/" rel="tag">Instalação</a>, <a href="https://www.sfriarcondicionado.com.br/loja-virtual/servicos/" rel="tag">Serviços</a></span>
+	<span class="tagged_as">Tags: <a href="https://www.sfriarcondicionado.com.br/tag/ar-condicionado-split/" rel="tag">Ar condicionado split</a>, <a href="https://www.sfriarcondicionado.com.br/tag/instalacao-de-ar-condicionado/" rel="tag">Instalação de ar condicionado</a>, <a href="https://www.sfriarcondicionado.com.br/tag/instalacao-de-ar-condicionado-split/" rel="tag">Instalação de ar condicionado split</a></span>
+	
+</div>
+				</div>
+
+				
+	<div class="woocommerce-tabs wc-tabs-wrapper">
+		<ul class="tabs wc-tabs" role="tablist">
+							<li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description">
+					<a href="#tab-description">
+						Descrição					</a>
+				</li>
+							<li class="reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews">
+					<a href="#tab-reviews">
+						Avaliações (0)					</a>
+				</li>
+					</ul>
+					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+				
+	<h2>Descrição</h2>
+
+<div><strong><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Nosso serviço de <a href="https://www.sfriarcondicionado.com.br/servicos/ar-condicionado/">instalação</a> SfriAr inclui:</span></span></span></span></strong></div>
+<div></div>
+<ul>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Até 03 metros de material de tubulação frigorífica e cabos elétricos necessários para a interligação da unidade condensadora à unidade evaporadora. (A partir de R$ 120,00 a cada metro adicional)</span></span></span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Material de isolamento térmico para a interligação da tubulação frigorifica entre as unidades (até 3 metros).</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Mangueira cristal de escoamento do liquido condensado pela unidade evaporadora, interligando-a até o ponto de drenagem (até 3 metros quando necessário).</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Aplicação do complemento da carga de gás adequada a capacidade e ao modelo do ar condicionado (quando necessário).</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Suporte de fixação para a unidade condensadora (unidade externa).</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Materiais e acessórios para fixação das unidades evaporadora e condensadora nos respectivos suportes (buchas, porcas, arruelas, parafusos, cinta de amarração e fixadores).</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Execução do serviço do furo reto que permita a tubulação sair da parte interna do ambiente para atingir a parte externa, visando permitir que a tubulação atravesse a parede.* Execução dos serviços com mão de obra qualificada para instalação do condicionador de ar, kit instalação, suporte e fixação das unidades condensadora e evaporadora.</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Testes técnicos finais de funcionamento e refrigeração do condicionador de ar.</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Testes técnicos e diminuição de ruídos e vibrações. (Obs. Respeitando os limites de decibéis de fábrica.)</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Apresentação do serviço realizado e orientação dos recursos e funcionamento do condicionador de ar instalado.</span></span></li>
+<li><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Prazo de garantia de acordo com o <a href="https://www.defesadoconsumidor.gov.br/images/manuais/codigo-de-protecao-e-defesa-do-consumidor.pdf">código</a> do consumidor.</span></span></li>
+</ul>
+<p><img decoding="async" class="wp-image-2873 aligncenter" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20139%20139'%3E%3C/svg%3E" alt="instalação de ar condicionado" width="139" height="139" data-lazy-srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-300x300.png 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-150x150.png 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-75x75.png 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-500x500.png 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-180x180.png 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1.png 512w" data-lazy-sizes="(max-width: 139px) 100vw, 139px" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-300x300.png" /><noscript><img decoding="async" class="wp-image-2873 aligncenter" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-300x300.png" alt="instalação de ar condicionado" width="139" height="139" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-300x300.png 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-150x150.png 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-75x75.png 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-500x500.png 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1-180x180.png 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/manutenção-de-ar-condicionado-em-goiânia-1.png 512w" sizes="(max-width: 139px) 100vw, 139px" /></noscript></p>
+			</div>
+					<div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+				<div id="reviews" class="woocommerce-Reviews">
+	<div id="comments">
+		<h2 class="woocommerce-Reviews-title">
+			Avaliações		</h2>
+
+					<p class="woocommerce-noreviews">Não há avaliações ainda.</p>
+			</div>
+
+			<div id="review_form_wrapper">
+			<div id="review_form">
+					<div id="respond" class="comment-respond">
+		<span id="reply-title" class="comment-reply-title">Seja o primeiro a avaliar &ldquo;Instalação de ar condicionado Split inverter 12.000 / 9.000 BTUS&rdquo; <small><a rel="nofollow" id="cancel-comment-reply-link" href="/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/#respond" style="display:none;">Cancelar resposta</a></small></span><form action="https://www.sfriarcondicionado.com.br/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">O seu endereço de e-mail não será publicado.</span> <span class="required-field-message">Campos obrigatórios são marcados com <span class="required">*</span></span></p><div class="comment-form-rating"><label for="rating">Sua avaliação&nbsp;<span class="required">*</span></label><select name="rating" id="rating" required>
+						<option value="">Avaliar&hellip;</option>
+						<option value="5">Perfeito</option>
+						<option value="4">Bom</option>
+						<option value="3">Razoável</option>
+						<option value="2">Nada mal</option>
+						<option value="1">Muito ruim</option>
+					</select></div><p class="comment-form-comment"><label for="comment">Sua avaliação sobre o produto&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p><p class="comment-form-author"><label for="author">Nome&nbsp;<span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30" required /></p>
+<p class="comment-form-email"><label for="email">E-mail&nbsp;<span class="required">*</span></label><input id="email" name="email" type="email" value="" size="30" required /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Enviar" /> <input type='hidden' name='comment_post_ID' value='2679' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+				</div>
+		</div>
+	
+	<div class="clear"></div>
+</div>
+			</div>
+		
+			</div>
+
+
+	<section class="related products">
+
+					<h2>Produtos relacionados</h2>
+				
+		<ul class="products columns-4">
+
+			
+					<li class="entry product type-product post-2855 status-publish first instock product_cat-limpeza-de-ar-condicionado-em-goiania-e-regiao product_cat-servicos product_tag-climatizador product_tag-climatizador-consul product_tag-climatizador-consul-bem-estar product_tag-climatizador-consul-quente-e-frio product_tag-climatizador-de-ar product_tag-climatizador-de-ar-consul product_tag-climatizador-de-ar-frio product_tag-climatizador-de-ar-quente-e-frio product_tag-climatizador-electrolux product_tag-climatizador-goiania product_tag-climatizador-quente-e-frio product_tag-climatizador-springer product_tag-limpeza-de-climatizador product_tag-limpeza-de-climatizador-em-goiania product_tag-ventilador-climatizador has-post-thumbnail shipping-taxable product-type-simple">
+	<a href="https://www.sfriarcondicionado.com.br/loja/servicos/limpeza-de-ar-condicionado-em-goiania-e-regiao/limpeza-de-climatizador/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="500" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" data-lazy-srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" data-lazy-sizes="(max-width: 500px) 100vw, 500px" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" /><noscript><img width="500" height="500" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" /></noscript><h2 class="woocommerce-loop-product__title">Limpeza de Climatizador</h2>
+</a><a href="https://www.sfriarcondicionado.com.br/loja/servicos/limpeza-de-ar-condicionado-em-goiania-e-regiao/limpeza-de-climatizador/" data-quantity="1" class="button wp-element-button product_type_simple" data-product_id="2855" data-product_sku="" aria-label="Leia mais sobre &ldquo;Limpeza de Climatizador&rdquo;" rel="nofollow">Leia mais</a></li>
+
+			
+					<li class="entry product type-product post-4868 status-publish instock product_cat-instalacao-de-ar-condicionado product_cat-servicos product_tag-ar-condicionados-em-goiania product_tag-vendo-ar-condicionado-goiania has-post-thumbnail shipping-taxable purchasable product-type-simple">
+	<a href="https://www.sfriarcondicionado.com.br/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-cassete-inverter-36-000-48-000-btus-2/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="500" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação de ar condicionado" decoding="async" data-lazy-srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-500x500.jpeg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-150x150.jpeg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-75x75.jpeg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-600x600.jpeg 600w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-180x180.jpeg 180w" data-lazy-sizes="(max-width: 500px) 100vw, 500px" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-500x500.jpeg" /><noscript><img width="500" height="500" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-500x500.jpeg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação de ar condicionado" decoding="async" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-500x500.jpeg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-150x150.jpeg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-75x75.jpeg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-600x600.jpeg 600w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2020/09/WhatsApp-Image-2020-07-31-at-11.46.00-180x180.jpeg 180w" sizes="(max-width: 500px) 100vw, 500px" /></noscript><h2 class="woocommerce-loop-product__title">Instalação de Ar Condicionado Cassete Inverter 36.000 / 48.000 BTUS</h2>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#82;&#36;</span>1.650,00</bdi></span></span>
+</a><a href="?add-to-cart=4868" data-quantity="1" class="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="4868" data-product_sku="" aria-label="Adicionar &ldquo;Instalação de Ar Condicionado Cassete Inverter 36.000 / 48.000 BTUS&rdquo; no seu carrinho" rel="nofollow">Comprar</a></li>
+
+			
+					<li class="entry product type-product post-2469 status-publish onbackorder product_cat-manutencao-de-ar-condicionado-em-goiania product_cat-servicos product_tag-bactericida product_tag-corretiva product_tag-desobstrucao product_tag-filtros product_tag-fungicidas product_tag-higienizacao product_tag-instalacao-de-ar-condicionado-em-goiania product_tag-limpeza product_tag-manutencao product_tag-manutencao-de-ar-condicionado-em-goiania product_tag-manutencao-preventiva product_tag-manutencao-preventiva-em-goiania product_tag-preventiva product_tag-servicos has-post-thumbnail virtual product-type-simple">
+	<a href="https://www.sfriarcondicionado.com.br/loja/servicos/manutencao-de-ar-condicionado-em-goiania/manutencao-corretiva/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="500" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" data-lazy-srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" data-lazy-sizes="(max-width: 500px) 100vw, 500px" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" /><noscript><img width="500" height="500" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" /></noscript><h2 class="woocommerce-loop-product__title">Manutenção Corretiva</h2>
+</a><a href="https://www.sfriarcondicionado.com.br/loja/servicos/manutencao-de-ar-condicionado-em-goiania/manutencao-corretiva/" data-quantity="1" class="button wp-element-button product_type_simple" data-product_id="2469" data-product_sku="" aria-label="Leia mais sobre &ldquo;Manutenção Corretiva&rdquo;" rel="nofollow">Leia mais</a></li>
+
+			
+					<li class="entry product type-product post-2866 status-publish last instock product_cat-limpeza-de-ar-condicionado-em-goiania-e-regiao product_cat-servicos product_tag-ar-condicionado-fan-coil-preco product_tag-fan-coil product_tag-fan-coil-agua-gelada product_tag-fan-coil-chiller product_tag-fan-coil-dimensoes product_tag-fan-coil-goiania product_tag-fan-coil-o-que-e product_tag-limpeza-de-fan-coil product_tag-limpeza-de-fan-coil-goiania has-post-thumbnail shipping-taxable product-type-simple">
+	<a href="https://www.sfriarcondicionado.com.br/loja/servicos/limpeza-de-ar-condicionado-em-goiania-e-regiao/limpeza-ar-condicionado-fan-coil/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="500" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20500'%3E%3C/svg%3E" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" data-lazy-srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" data-lazy-sizes="(max-width: 500px) 100vw, 500px" data-lazy-src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" /><noscript><img width="500" height="500" src="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="Instalação e manutenção de ar condicionado" decoding="async" srcset="https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-500x500.jpg 500w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-150x150.jpg 150w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-300x300.jpg 300w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-75x75.jpg 75w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1-180x180.jpg 180w, https://www.sfriarcondicionado.com.br/wp-content/uploads/2018/07/sfriar_ar_condicionado_3-1.jpg 600w" sizes="(max-width: 500px) 100vw, 500px" /></noscript><h2 class="woocommerce-loop-product__title">Limpeza Ar condicionado Fan Coil</h2><div class="star-rating" role="img" aria-label="Avaliação 5.00 de 5"><span style="width:100%">Avaliação <strong class="rating">5.00</strong> de 5</span></div>
+</a><a href="https://www.sfriarcondicionado.com.br/loja/servicos/limpeza-de-ar-condicionado-em-goiania-e-regiao/limpeza-ar-condicionado-fan-coil/" data-quantity="1" class="button wp-element-button product_type_simple" data-product_id="2866" data-product_sku="" aria-label="Leia mais sobre &ldquo;Limpeza Ar condicionado Fan Coil&rdquo;" rel="nofollow">Leia mais</a></li>
+
+			
+		</ul>
+
+	</section>
+				</div>
+
+			</main></div></div><a href="https://api.whatsapp.com/send?phone=556234341359" class="wp-float" target="_blank"><i class="fab fa-whatsapp wp-button"></i>
+</a><div id="rodape" class="before-footer widget-area"><div class="" class="widget-area"><section id="featured-page-2" class="widget featured-content featuredpage"><div class="widget-wrap"><article class="post-3451 page type-page status-publish entry" aria-label="Contato &#8211; Rodapé"><div class="entry-content">
+<div style="background-color:#00356a;padding-left:10%;padding-right:10%;padding-bottom:7%;padding-top:7%" class="wp-block-genesis-blocks-gb-container alignfull gb-block-container"><div class="gb-container-inside"><div class="gb-container-content" style="max-width:1200px">
+<div class="wp-block-genesis-blocks-gb-columns gb-layout-columns-2 gb-2-col-equal"><div class="gb-layout-column-wrap gb-block-layout-column-gap-2 gb-is-responsive-column">
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner">
+<h5 class="has-text-color" style="color:#cecece">Está precisando de ajuda na compra ou serviços?</h5>
+
+
+
+<h2 class="has-text-color" style="color:#ffffff">Entre em contato <strong>com nossos especialistas</strong></h2>
+
+
+
+<p class="has-text-color" style="color:#ffffff">Oferecemos o serviço de emergência 24/h para todos os nossos clientes de Goiânia e região. </p>
+
+
+
+<h6 class="has-text-color" style="color:#ffffff"><i class="fas fa-phone-alt"></i> <strong>Telefones:</strong></h6>
+
+
+
+<p class="has-text-color" style="color:#dddddd">Escritório 1: 62 3434-1359 <br>Contratos: 62 99396-3482<br>Engenharia: 62 99695-4180 </p>
+
+
+
+<h6 class="has-text-color" style="color:#ffffff"><i class="fas fa-question-circle"></i> <strong>Precisa de suporte imediato?</strong></h6>
+
+
+
+<p class="has-text-color" style="color:#dddddd">Envie sua mensagem por <a rel="noreferrer noopener" href="https://web.whatsapp.com/send?phone=+556234341359&amp;text=Ol%C3%A1,%20tenho%20interesse" target="_blank">Whatsapp <i class="fab fa-whatsapp"></i></a></p>
+
+
+
+<h5 class="has-text-color" style="color:#ffffff"><i class="fas fa-map-marker-alt"></i> <strong>Nosso endereço</strong></h5>
+
+
+
+<p class="has-text-color" style="color:#dddddd">Av. Boullevard Conde dos Arcos, Qd. 33, Lt. 04 &#8211; Bairro Goiânia 2, Goiânia / GO &#8211; Brasil</p>
+
+
+
+<div style="height:38px" aria-hidden="true" class="wp-block-spacer"></div>
+</div></div>
+
+
+
+<div class="wp-block-genesis-blocks-gb-column gb-block-layout-column"><div class="gb-block-layout-column-inner" style="margin-bottom:10px">
+<div style="background-color:#ffffff;padding-left:3%;padding-right:3%;padding-bottom:3%;padding-top:2%" class="wp-block-genesis-blocks-gb-container border-radius sombra-azul gb-block-container"><div class="gb-container-inside"><div class="gb-container-content">
+<h4 class="has-text-align-center titulo-barra-center" id="reservar">Reserve seu <strong>serviço</strong></h4>
+
+
+<div class="wpforms-container wpforms-container-full" id="wpforms-3469"><form id="wpforms-form-3469" class="wpforms-validate wpforms-form" data-formid="3469" method="post" enctype="multipart/form-data" action="/loja/servicos/instalacao-de-ar-condicionado/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus/" data-token="e6dc8bc690fdaaf9795597100e6097f1"><noscript class="wpforms-error-noscript">Ative o JavaScript no seu navegador para preencher este formulário.</noscript><div class="wpforms-field-container"><div id="wpforms-3469-field_0-container" class="wpforms-field wpforms-field-name wpforms-one-half wpforms-first border-radius" data-field-id="0"><label class="wpforms-field-label" for="wpforms-3469-field_0">Nome <span class="wpforms-required-label">*</span></label><input type="text" id="wpforms-3469-field_0" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][0]" required></div><div id="wpforms-3469-field_4-container" class="wpforms-field wpforms-field-select wpforms-one-half border-radius" data-field-id="4"><label class="wpforms-field-label" for="wpforms-3469-field_4">Tipo de serviço <span class="wpforms-required-label">*</span></label><select id="wpforms-3469-field_4" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][4]" required="required"><option value="Aquecedores" >Aquecedores</option><option value="Instalação de sistema central" >Instalação de sistema central</option><option value="Instalação de ar condicionados" >Instalação de ar condicionados</option><option value="Manutenção, suporte e reparos" >Manutenção, suporte e reparos</option><option value="Sugestão, reclamação e dúvidas" >Sugestão, reclamação e dúvidas</option><option value="Outros" >Outros</option></select></div><div id="wpforms-3469-field_1-container" class="wpforms-field wpforms-field-email wpforms-one-half wpforms-first border-radius" data-field-id="1"><label class="wpforms-field-label" for="wpforms-3469-field_1">E-mail</label><input type="email" id="wpforms-3469-field_1" class="wpforms-field-large" name="wpforms[fields][1]" ></div><div id="wpforms-3469-field_5-container" class="wpforms-field wpforms-field-text wpforms-one-half border-radius" data-field-id="5"><label class="wpforms-field-label" for="wpforms-3469-field_5">Telefone / Whatsapp <span class="wpforms-required-label">*</span></label><input type="text" id="wpforms-3469-field_5" class="wpforms-field-large wpforms-field-required" name="wpforms[fields][5]" required></div><div id="wpforms-3469-field_2-container" class="wpforms-field wpforms-field-textarea border-radius" data-field-id="2"><label class="wpforms-field-label" for="wpforms-3469-field_2">Deixe sua mensagem / Comentários <span class="wpforms-required-label">*</span></label><textarea id="wpforms-3469-field_2" class="wpforms-field-small wpforms-field-required" name="wpforms[fields][2]" required></textarea></div></div><div class="wpforms-field wpforms-field-hp"><label for="wpforms-3469-field-hp" class="wpforms-field-label">Email</label><input type="text" name="wpforms[hp]" id="wpforms-3469-field-hp" class="wpforms-field-medium"></div><div class="wpforms-submit-container"><input type="hidden" name="wpforms[id]" value="3469"><input type="hidden" name="wpforms[author]" value="1"><input type="hidden" name="wpforms[post_id]" value="3451"><button type="submit" name="wpforms[submit]" id="wpforms-submit-3469" class="wpforms-submit" data-alt-text="Enviando..." data-submit-text="Enviar solicitação" aria-live="assertive" value="wpforms-submit">Enviar solicitação</button></div></form></div>  <!-- .wpforms-container -->
+</div></div></div>
+
+
+
+<p></p>
+</div></div>
+</div></div>
+</div></div></div>
+</div></article></div></section>
+</div></div><footer class="site-footer"><div class="wrap"><p>Copyright &#x000A9;&nbsp;2023 · SfriAr condicionados · Especialistas em Climatização  · <a href="#topo" title="Ir para o topo do site">Ir para o topo</a></p></div></footer></div>	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		function genesisBlocksShare( url, title, w, h ){
+			var left = ( window.innerWidth / 2 )-( w / 2 );
+			var top  = ( window.innerHeight / 2 )-( h / 2 );
+			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=600, top='+top+', left='+left);
+		}
+	</script>
+	<amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-159264274-1",
+    "config" : {
+      "UA-159264274-1": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+<!----------  ---!><script type="application/ld+json">{"@context":"https:\/\/schema.org\/","@type":"Product","@id":"https:\/\/www.sfriarcondicionado.com.br\/loja\/servicos\/instalacao-de-ar-condicionado\/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus\/#product","name":"Instala\u00e7\u00e3o de ar condicionado Split inverter 12.000 \/ 9.000 BTUS","url":"https:\/\/www.sfriarcondicionado.com.br\/loja\/servicos\/instalacao-de-ar-condicionado\/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus\/","description":"N\u00f3s da SfriAr Engenharia e Climatiza\u00e7\u00e3o somos capacitados para executar o servi\u00e7o de Instala\u00e7\u00e3o de ar condicionado Split inverter 12.000 \/ 9.000 BTUS em Goi\u00e2nia, Goi\u00e1s e Brasil. Oferecemos garantia e qualidade do servi\u00e7o prestado referente a instala\u00e7\u00e3o, com a melhor m\u00e3o de obra profissional do mercado e t\u00e9cnicos capacitados para execu\u00e7\u00e3o total de sua obra.\u00a0\r\n\r\n\r\nOu seja, contamos com aux\u00edlio das maiores fabricantes do mercado para entregar com agilidade e prestatividade o servi\u00e7o solicitado.\r\n\r\n&amp;nbsp;","image":"https:\/\/www.sfriarcondicionado.com.br\/wp-content\/uploads\/2021\/01\/ar-sfriar-reduzida-min1.png","sku":2679,"offers":[{"@type":"Offer","price":"650.00","priceValidUntil":"2024-12-31","priceSpecification":{"price":"650.00","priceCurrency":"BRL","valueAddedTaxIncluded":"false"},"priceCurrency":"BRL","availability":"http:\/\/schema.org\/InStock","url":"https:\/\/www.sfriarcondicionado.com.br\/loja\/servicos\/instalacao-de-ar-condicionado\/instalacao-de-ar-condicionado-split-inverter-12000-9000-btus\/","seller":{"@type":"Organization","name":"Instala\u00e7\u00e3o e manuten\u00e7\u00e3o de ar condicionados | SfriAr","url":"https:\/\/www.sfriarcondicionado.com.br"}}]}</script>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="pswp__bg"></div>
+	<div class="pswp__scroll-wrap">
+		<div class="pswp__container">
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+		</div>
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+				<div class="pswp__counter"></div>
+				<button class="pswp__button pswp__button--close" aria-label="Fechar (Esc)"></button>
+				<button class="pswp__button pswp__button--share" aria-label="Compartilhar"></button>
+				<button class="pswp__button pswp__button--fs" aria-label="Expandir tela"></button>
+				<button class="pswp__button pswp__button--zoom" aria-label="Ampliar/reduzir (zoom)"></button>
+				<div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div>
+			</div>
+			<button class="pswp__button pswp__button--arrow--left" aria-label="Anterior (seta da esquerda)"></button>
+			<button class="pswp__button pswp__button--arrow--right" aria-label="Próximo (seta da direita)"></button>
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel='stylesheet' id='wpforms-full-css' href='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/css/wpforms-full.min.css?ver=1.7.9.1' media='all' />
+<script src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/zoom/jquery.zoom.min.js?ver=1.7.21-wc.7.3.0' id='zoom-js' defer></script>
+<script src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/flexslider/jquery.flexslider.min.js?ver=2.7.2-wc.7.3.0' id='flexslider-js' defer></script>
+<script src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe.min.js?ver=4.1.1-wc.7.3.0' id='photoswipe-js' defer></script>
+<script src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js?ver=4.1.1-wc.7.3.0' id='photoswipe-ui-default-js' defer></script>
+<script id='wc-single-product-js-extra'>
+var wc_single_product_params = {"i18n_required_rating_text":"Selecione uma classifica\u00e7\u00e3o","review_rating_required":"yes","flexslider":{"rtl":false,"animation":"slide","smoothHeight":true,"directionNav":false,"controlNav":"thumbnails","slideshow":false,"animationSpeed":500,"animationLoop":false,"allowOneSlide":false},"zoom_enabled":"1","zoom_options":[],"photoswipe_enabled":"1","photoswipe_options":{"shareEl":false,"closeOnScroll":false,"history":false,"hideAnimationDuration":0,"showAnimationDuration":0},"flexslider_enabled":"1"};
+</script>
+<script src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/frontend/single-product.min.js?ver=7.3.0' id='wc-single-product-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.7.3.0' id='jquery-blockui-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.7.3.0' id='js-cookie-js' defer></script>
+<script id='woocommerce-js-extra'>
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+</script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=7.3.0' id='woocommerce-js' defer></script>
+<script id='wc-cart-fragments-js-extra'>
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_3daf125d32f7e623d25967a6649467f3","fragment_name":"wc_fragments_3daf125d32f7e623d25967a6649467f3","request_timeout":"5000"};
+</script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=7.3.0' id='wc-cart-fragments-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" src='https://www.sfriarcondicionado.com.br/wp-content/cache/min/1/wp-content/plugins/genesis-blocks/dist/assets/js/dismiss.js?ver=1668973026' id='genesis-blocks-dismiss-js-js' defer></script>
+<script type="rocketlazyloadscript" id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/finalizar-compra\/|\/carrinho\/|\/minha-conta\/|\/wc-api\/v(.*)|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/www.sfriarcondicionado.com.br","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-includes/js/comment-reply.min.js?ver=6.1.1' id='comment-reply-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-includes/js/hoverIntent.min.js?ver=1.10.2' id='hoverIntent-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/themes/genesis/lib/js/menu/superfish.min.js?ver=1.7.10' id='superfish-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/themes/genesis/lib/js/menu/superfish.args.min.js?ver=3.4.0' id='superfish-args-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/themes/genesis/lib/js/skip-links.min.js?ver=3.4.0' id='skip-links-js' defer></script>
+<script id='genesis-sample-responsive-menu-js-extra'>
+var genesis_responsive_menu = {"mainMenu":"Menu","menuIconClass":"dashicons-before dashicons-menu","subMenu":"Submenu","subMenuIconClass":"dashicons-before dashicons-arrow-down-alt2","menuClasses":{"others":[".nav-primary"]}};
+</script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/themes/genesis/lib/js/menu/responsive-menus.min.js?ver=1.1.3' id='genesis-sample-responsive-menu-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/lib/jquery.validate.min.js?ver=1.19.5' id='wpforms-validation-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/lib/mailcheck.min.js?ver=1.1.2' id='wpforms-mailcheck-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/lib/punycode.min.js?ver=1.0.0' id='wpforms-punycode-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/js/utils.min.js?ver=1.7.9.1' id='wpforms-generic-utils-js' defer></script>
+<script type="rocketlazyloadscript" src='https://www.sfriarcondicionado.com.br/wp-content/plugins/wpforms-lite/assets/js/wpforms.min.js?ver=1.7.9.1' id='wpforms-js' defer></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpforms_settings = {"val_required":"Este campo \u00e9 obrigat\u00f3rio.","val_email":"Digite um e-mail v\u00e1lido.","val_email_suggestion":"Voc\u00ea quis dizer {suggestion}?","val_email_suggestion_title":"Clique para aceitar esta sugest\u00e3o.","val_email_restricted":"Este endere\u00e7o de e-mail n\u00e3o \u00e9 permitido.","val_number":"Digite um n\u00famero v\u00e1lido.","val_number_positive":"Digite um n\u00famero de telefone v\u00e1lido.","val_confirm":"Valores de campo n\u00e3o correspondem.","val_checklimit":"Voc\u00ea excedeu o n\u00famero de sele\u00e7\u00f5es permitidas: {#}.","val_limit_characters":"{count} de {limit} caracteres no m\u00e1ximo.","val_limit_words":"{count} do m\u00e1ximo de {limit} palavras.","val_recaptcha_fail_msg":"A verifica\u00e7\u00e3o do Google reCAPTCHA falhou. Tente novamente mais tarde.","val_inputmask_incomplete":"Por favor, preencha o campo no formato obrigat\u00f3rio.","uuid_cookie":"","locale":"pt","wpforms_plugin_url":"https:\/\/www.sfriarcondicionado.com.br\/wp-content\/plugins\/wpforms-lite\/","gdpr":"","ajaxurl":"https:\/\/www.sfriarcondicionado.com.br\/wp-admin\/admin-ajax.php","mailcheck_enabled":"1","mailcheck_domains":[],"mailcheck_toplevel_domains":["dev"],"is_ssl":"1","page_title":"Instala\u00e7\u00e3o de ar condicionado Split inverter 12.000 \/ 9.000 BTUS","page_id":"2679"}
+/* ]]> */
+</script>
+<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.sfriarcondicionado.com.br/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>function lazyLoadThumb(e){var t='<img data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?'':'&'+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow", "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var e,t,p,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)e=document.createElement("div"),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query", a[t].dataset.query),e.setAttribute("data-src", a[t].dataset.src),e.innerHTML=lazyLoadThumb(a[t].dataset.id),a[t].appendChild(e),p=e.querySelector('.play'),p.onclick=lazyLoadYoutubeIframe});</script><script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body></html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1676393822 -->
