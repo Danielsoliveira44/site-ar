@@ -27,7 +27,7 @@
                                 <span class="input-group-addon" id="basic-addon2">
                                     <span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                <input type="text" name="email_contato" placeholder="Email" aria-describedby="basic-addon2" class="form-control" required>
+                                <input type="email" name="email_contato" placeholder="Email" aria-describedby="basic-addon2" class="form-control" required>
                             </span>
                         </p>
                         <p>
