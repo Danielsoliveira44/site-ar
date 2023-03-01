@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Document</title>
@@ -100,6 +99,18 @@
     
 </div>
 
+<div class="sobre_nos">
+   <div class="titulo_sobre"> 
+        <h1>Sobre nós</h1>
+        <img src="../linha.svg" id="linha_sobre" alt="linha ao lado do banner">
+        &nbsp;
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis libero repudiandae voluptatibus<br> 
+            iste adipisci magni inventore, ipsam error, ratione sit delectus perspiciatis vero repellendus odio, <br>
+            voluptatem suscipit autem beatae corrupti?</p>
+    </div>
+    <div id="logo_sobre"></div>    
+
+</div>
 
 
   </header>
@@ -192,6 +203,16 @@
         </div>
     </div>
       </section>
+      <div class="footer">
+        <div class="img_footer">
+        </div>
+
+            <div class="form_footer">
+                <h1>Contato</h1>
+                <img src="../linha.svg" id="linha_footer" alt="linha a baixo do contato">
+                <?php include ('form.php')?>
+        </div>
+      </div>
       <script>
         var app = angular.module('meuApp', []);
         app.controller('meuController', function($scope) {
