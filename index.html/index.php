@@ -1,3 +1,14 @@
+<?php 
+include "../conn/connect.php";
+
+$ar_condicionado = $conn->query('select * from vw_produtos where id_tipo = 1');
+$inverter = $conn->query('select * from vw_produtos where id_tipo = 2');
+$multi_split = $conn->query('select * from vw_produtos where id_tipo = 3');
+$solar = $conn->query('select * from vw_produtos where id_tipo = 4');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pr-BR">
 <head>
@@ -23,7 +34,7 @@
       </nav>
     </div>
 <div class="banner_solar">
-    <img src="../img/energia_solar.jpg" alt="imagem de energia solar instalada em uma casa.">
+    <img src="../img/energiasolar.png" alt="imagem de energia solar instalada em uma casa.">
 
     <div id="img_banner_first">
         <img src="../linha.svg" alt="linha ao lado do banner">
@@ -104,16 +115,25 @@
         <h1>Sobre nós</h1>
         <img src="../linha.svg" id="linha_sobre" alt="linha ao lado do banner">
         &nbsp;
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis libero repudiandae voluptatibus<br> 
-            iste adipisci magni inventore, ipsam error, ratione sit delectus perspiciatis vero repellendus odio, <br>
-            voluptatem suscipit autem beatae corrupti?</p>
+        &nbsp;
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+         Accusamus soluta iusto voluptatum. Quos possimus sed omnis,<br> 
+         quis doloribus quidem non corporis exercitationem quia veniam, <br>
+         blanditiis maiores excepturi ipsam iure consequatur.<br>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+         Accusamus soluta iusto voluptatum. Quos possimus sed omnis,<br> 
+         quis doloribus quidem non corporis exercitationem quia veniam, <br>
+         blanditiis maiores excepturi ipsam iure consequatur.</p>
     </div>
-    <div id="logo_sobre"></div>    
+    <div id="logo_sobre">
+        <img src="../img/logo_grande.png" alt="">
+    </div>    
 
 </div>
-
-
   </header>
+
+  
     <h1 id="produtos_txt">Produtos</h1>
   
     <div class="linha w50">
@@ -132,20 +152,12 @@
     </div>
 
     <div class="linha w95" ng-show="arcondicionado">
-        <div>
-            <img src="../img/ar_condicionado/ar-condicionado-agratto.jpg" alt="">
-        </div>
-        <div>
-            <img src="../img/ar_condicionado/ar-condicionado-consul.jpg" alt="">
-        </div>
-        <div>
-            <img src="../img/ar_condicionado/ar-condicionado-midea.jpg" alt="">
-        </div>
-        <div>
-            <img src="../img/ar_condicionado/ar-condicionado-panasonic.jpg" alt="">
-        </div>
-        <div>
-            <img src="../img/ar_condicionado/ar-condionado-lg.jpg" alt="">
+        <div style="display: flex;">
+            <?php while ($row = $ar_condicionado->fetch_assoc()) { ?>
+                <a href="detalhe_produto.php?id=<?php echo $row['id'] ?>" role="button">
+                    <img src="../img/ar_condicionado/<?php echo $row['imagem'] ?> " alt="">
+                </a>
+            <?php } ?>
         </div>
     </div>
 

@@ -1,6 +1,9 @@
 *
+p{
+   align-items: center;
+}
 body{
-   background-color: #dfdfdf;
+   background-color: #f5f0f0;
    font-family: 'texto', sans-serif;
    padding: 0px;
    margin: 0px;}
@@ -120,23 +123,20 @@ li{
 /* ################## começo sobre nós #################### */
 .sobre_nos{
    display: flex;
-   align-items: center;
    justify-content: center;
    flex-direction: row;
-   border: 1px black solid;
-
+   background-color: #c0c7c4;
 }
 .titulo_sobre{
    display: flex;
    align-items: center;
-   justify-content: center;
    flex-direction: column;
-
+   text-align: center;
+   margin-top: 30px;
 }
 #linha_sobre{
    display: flex;
-   width: 20%;
-   border: 1px black solid;
+   width: 160px;
 }
 .titulo_sobre #logo_sobre{
    display: flex;
@@ -146,9 +146,14 @@ li{
    display: flex;
    align-items: center;
    justify-content: center;
-   border: 1px black solid;
-   width: 350px;
-   height: 350px;
+   margin-top: 50px;
+   margin-left: 20px ;
+   margin-bottom: 50px ;
+   padding: 10px 10px;
+   width: 400px;
+   height: 400px;
+   background-color: #fff;
+   border-radius: 10px;
 }
 
 
