@@ -106,8 +106,6 @@ $solar = $conn->query('select * from vw_produtos where id_tipo = 4');
     <div class="srv_img">
         <img src="../img/servico_ar.jpg" alt="">
     </div>
-    
-    
 </div>
 
 <div class="sobre_nos">
@@ -117,13 +115,13 @@ $solar = $conn->query('select * from vw_produtos where id_tipo = 4');
         &nbsp;
         &nbsp;
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-         Accusamus soluta iusto voluptatum. Quos possimus sed omnis,<br> 
-         quis doloribus quidem non corporis exercitationem quia veniam, <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Accusamus soluta iusto voluptatum. Quos possimus sed omnis, <br>
+         quis doloribus quidem non corporis exercitationem quia veniam, 
          blanditiis maiores excepturi ipsam iure consequatur.<br>
-         Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
-         Accusamus soluta iusto voluptatum. Quos possimus sed omnis,<br> 
-         quis doloribus quidem non corporis exercitationem quia veniam, <br>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Accusamus soluta iusto voluptatum. Quos possimus sed omnis,<br>
+         quis doloribus quidem non corporis exercitationem quia veniam, 
          blanditiis maiores excepturi ipsam iure consequatur.</p>
     </div>
     <div id="logo_sobre">
