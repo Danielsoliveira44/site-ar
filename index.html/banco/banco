@@ -1,0 +1,70 @@
+create database site_ar;
+use site_ar;
+
+
+CREATE TABLE tipos(
+id int Not Null auto_increment primary key,
+sigla varchar(3) Not Null,
+rotulo varchar(15) Not Null);
+
+CREATE TABLE produtos(
+id int not null auto_increment primary key,
+id_tipo int Not Null,
+nome Varchar(150) Not Null,
+descricao text Not Null,
+quantidade Int Not Null,
+preco Varchar(6) Not Null,
+imagem varchar(50) Not Null,
+destaque_produto enum('Sim','Não') Not Null,
+foreign key (id_tipo) references tipos (id));
+
+
+CREATE VIEW vw_produtos AS
+ SELECT p.id,
+	p.id_tipo,
+	t.sigla,
+	t.rotulo,
+	p.nome,
+	p.descricao,
+	p.quantidade,
+	p.preco,
+	p.imagem,
+	p.destaque_produto
+ FROM produtos p
+ JOIN tipos t where p.id_tipo = t.id;
+COMMIT; 
+  
+
+insert into tipos values ('1','Con','ArCondicionado');
+insert into tipos values ('2','Inv','Inverter');
+insert into tipos values ('3','Mul','Multi Split');
+insert into tipos values ('4','Sol','Solar'); 
+
+insert into produtos Values ('1', '1','Ar Condicionado Agratto Split ONE','Ar Condicionado Split Com circuito inteligente para climatização, mantém a temperatura mais constante e evita picos de energia. Modernos bonitos e econômicos, como toda a linha splits Agratto, os Splits Inverter Agratto conseguem ir ainda mais além na economia. Seu cliclo de climatização inverter pode gerar até 60% mais economia.','15','2.159','ar-condicionado-agratto.jpg','Sim');
+insert into produtos Values ('2', '1','Ar condicionado split inverter 9000 btus Consul frio maxi refrigeração e maxi economia','Nova linha de Ar-Condicionado Split Consul. Design moderno e tecnologia bem pensada para o seu conforto no dia a dia. A nova linha de Ar Condicionado Split Consul tem máxima refrigeração, te dando mais conforto em menos tempo, e máxima economia.','12','3.119','ar-condicionado-consul.jpg','Sim');
+insert into produtos Values ('3', '1','AR CONDICIONADO SPLIT SPRINGER MIDEA 12000 BTUS FRIO 220V','O ar split Springer Midea é potente e econômico, com ciclo quente e frio que garante conforto e ar limpo o ano todo. Com o filtro antibactéria, ele irá manter sua casa livre de doenças e com ar limpo. A função timer permite programar quando o ar liga ou desliga, economizando energia.','12','1.759','ar-condicionado-midea.jpg','Sim');
+insert into produtos Values ('4', '1','Ar Condicionado Split Panasonic Frio 12.000 BTUs - Econavi Inverter Controle Remoto Filtro Removível','Ar Condicionado ECONAVI INVERTER Split 12000 BTUs frio da Panasonic. Utiliza a nova tecnologia com sensores que permitem detectar de forma inteligente o nível de atividade das pessoas e também a intensidade de luz solar do ambiente. Com esta tecnologia podemos manter constantemente o conforto e reduzir o consumo de energia em até 65%. Além disso possui a tecnologia NANOE-G que elimina 99% dos micro-organismos presentes no ar como bactérias, vírus da gripe A (H1N1), vírus Escherichia Coli e mofo. Também desativa 99% das bactérias/vírus e inibe a proliferação de mofo na superfície de tecidos, assegurando um ambiente mais limpo e saudável. Funciona nos modos automático, climatiza, desumidifica, refrigera e ventila, 5 velocidades, também utiliza um elemento de filtro que pode ser removido facilmente para lavagem com água, proporcionando melhor desempenho de filtragem do ar e maior eficiência de funcionamento. Tem classificação energética A e controle remoto para sua maior comodidade.','10','4.759','ar-condicionado-panasonic.jpg','Sim');
+insert into produtos Values ('5', '1','Ar Condicionado Split Hi Wall Inverter LG Dual Voice Artcool UVnano 18000 BTU/h Quente e Frio S4NW18KLRXC.EB2GAMZ - 220 Volts','Ar Condicionado Split Hi Wall Inverter LG Dual Voice Artcool UVnano 18000 BTU/h Quente e Frio S4NW18KLRXC.EB2GAMZ - 220 Volts Conheça o Ar Condicionado Split Hi Wall Inverter LG Dual Voice Artcool UVnano 18000 BTU/h Quente e Frio S4NW18KLRXC.EB2GAMZ - 220 Volts oferece uma refrigeração e aquecimento mais rápido e poderoso com o compressor LG DUAL Inverter. Sinta-se confortável em todas as estações do ano com a mais avançada tecnologia.','15','3.959','ar-condicionado-lg.jpg','Sim'); 
+
+insert into produtos Values ('6', '2','Ar Condicionado Electrolux Split 9.000 Btus Frio Linha Ecoturbo (VI09F/VE09F) 220V','Ar Condicionado Split Hi Wall Electrolux Ecoturbo 9000 BTU/h Frio VI09F/VE09F - 220 Volts Prático, moderno e econômico. O Ar Condicionado Split EcoTurbo Electrolux oferece um ar mais puro, com classificação energética A, que garante a economia de energia que você precisa. Utiliza o Gás R410a, um gás que não agride a camada de ozônio, conta com a Função Siga-me; que faz com que a temperatura desejada, seja mantida onde está localizado o controle remoto, Função Auto-limpeza, para evitar a proliferação de odores e mofo.','15','3.959','ar_inverter-electrolux.jpg','Sim'); 
+insert into produtos Values ('7', '2','Ar-Condicionado Split hw Inverter Elgin Care 9.000 BTUs Só Frio 220V','O Inverter Care conta com um baixo nível de ruído devido a Tecnologia Inverter e ainda é muito mais econômico por fazer menos força para funcionar, consumindo menos energia elétrica. O Inverter Care tem classificação A nos testes do inmetro e ainda utiliza o gás R-410A, que não é tóxico, inflamável e não prejudica a camada de ozônio pois não possui clorofluorcarboneto (cfc).','12','2.599','ar_inverter-elgin.jpg','Sim'); 
+insert into produtos Values ('8', '2','Ar Condicionado Split Hi Wall Inverter LG Dual Compact 9000 BTU/h Frio S4NQ09WA5AC.EB2GAMZ - 220 Volts','Ar Condicionado Split Hi Wall Inverter LG Dual Compact 9000 Btu/h Frio S4NQ09WA5AC.EB2GAMZ - 220 Volts Com um sistema de ventilação de alta precisão, o LG Dual Inverter Compact oferece um menor nível de ruído, sendo mais silencioso que uma biblioteca. O balanceamento do rotor duplo presente no Compressor LG DUAL Inverter garante maior estabilidade e reduz a vibração, Proporcionando uma economia de até 60% de energia e refrigeração até 30% mais rápida, através de um controle mais amplo da velocidade. Graças ao controle mais amplo de velocidade do compressor, o LG DUAL Inverter atinge a temperatura desejada até 30% mais rápido e a mantém estável, sem a flutuação que ocorre em um modelo convencional, não Inverter.','20','1.959','ar_inverter-lg.jpg','Sim'); 
+insert into produtos Values ('9', '2','Ar condicionado Split Hi Wall Inverter Springer Xtreme Save Connect 9.000 Btus Frio 220v','O Ar-Condicionado Springer Midea Inverter Xtreme Save Connect traz tecnologia e conectividade aliado a maior conforto térmico e economia. Controle total de onde você estiver através do aplicativo MSmartHome que permite ligar ou desligar seu ar-condicionado a distância, bem como alterar a temperatura ou alterar as configurações. Através dos assistentes Google Assistant ou Alexa você também pode ligar, desligar, ajustar a temperatura ou alterar funções com comandos de voz simples e intuitivos Com a função Eco Noite¹ que quando ativada, a economia de energia pode chegar a até 70% ou em modo normal até 60% quando comparado aos produtos convencionais.','30','3.674','ar_inverter-midea.jpg','Sim'); 
+insert into produtos Values ('10', '2','Ar Condicionado Hi Wall Samsung WindFree Connect Inverter 9.000 Btus Frio 220v','Muito mais conforto para seus ambientes Ao toque de um botão o modo WindFree dispersa o ar climatizado através de 23.000 microfuros que elimina o vento gelado direto, deixando o ambiente ainda mais confortável para você e sua família. Até 77% de economia de energia No modo WindFree, o compressor Digital Inverter garante uma eficiência energética ainda melhor e consegue atingir uma economia de até 77% de energia comparado aos modelo convencionais.','10','4.000','ar_inverter-samsung.jpg','Sim'); 
+
+
+
+insert into produtos Values ('11', '3','Ar-Condicionado Split HW R-32 Inverter Daikin Ecoswing 9.000 BTUs Só Frio 220V','Ar-Condicionado Split HW Inverter Daikin Ecoswing R-32 O Split EcoSwing Smart R-32 oferece controle através de smartphone e é compatível com assistentes de voz Google e Alexa. Com design clean e moderno, conta com a nova geração de compressores com fluido refrigerante R-32 e possui classificação A já nos novos critérios estabelecidos pelo INMETRO. Dupla filtragem com Silver Ion O Filtro Silver Ion antibacteriano da Daikin é composto por íons de prata que eliminam as bactérias e mantém o ar do ambiente seguro e limpo.','15','3.000','multi-split-daikin.jpg','Sim'); 
+insert into produtos Values ('12', '3','Ar-Condicionado Multi Split Inverter Fujitsu 18.000 BTUs Evap HW 9.000 Quente/Frio 220V','Confira algumas das vantagens: Alta Eficiência: A alta eficiência é obtida através do uso do compressor DC duplo rotativo, controle DC inverter e motor DC do ventilador Unidade Externa Compacta: A unidade externa, por ser compacta pode ser instalada facilmente em varandas, telhados, paredes ou em qualquer lugar. Compressor DC Duplo Rotativo: A eficiência é melhorada, especialmente, num intervalo entre alta velocidade de rotação com alta carga até baixa velocidade de rotação com baixa carga, onde a maioria do tempo o compressor opera, e a alta potência é produzida com um baixo consumo de energia.','15','3.490','multi-split-fujitsu.jpg','Sim'); 
+insert into produtos Values ('13', '3','Ar-Condicionado Multi Split Inverter LG 18.000 BTUs (1x Evap hw 9.000 + 1x Evap hw 12.000) Quente/Frio 220V','Economia de energia: A avançada tecnologia de inversor da LG apresenta alto desempenho com menor consumo de energia. Ela trará grandes reduções nos custos ao longo da vida útil do produto. Refrigeração rápida com sensores inteligentes: Além de um sensor de temperatura, a LG adicionou um sensor de pressão para oferecer um controle mais preciso e estável. Com isso, é possível atingir a temperatura alvo 30% mais rápido para refrigeração e 44% para aquecimento.','15','7.239','multi-split-lg.jpg','Sim'); 
+insert into produtos Values ('14', '3','Ar-Condicionado Multi Split Inverter Springer Midea 18.000 BTUs (2x Evap hw 9.000) Quente/Frio 220V','Ar-Condicionado Multi Split Inverter 2 Ambientes Springer Midea Capaz de climatizar vários ambientes com uma única unidade externa, o Ar-Condicionado Multi Split Inverter Springer Midea combina a tecnologia Inverter, que reduz o consumo de energia e aumenta a vida útil do equipamento, com o moderno Sistema Ar + Puro HD Ion, eliminando até 99,9% das bactérias. Conforto, qualidade e economia em um único aparelho.','15','6.120','multi-split-midea.jpg','Sim'); 
+insert into produtos Values ('15', '3','Ar Condicionado Multi Bi Split Inverter Windfree Samsung 1x9000 + 1x12000 Btus Quente/Frio 220V AJ050AXJ2KH/AZ','Ar-Condicionado Multi Bi Split Inverter Samsung Com o Ar-Condicionado Multi Bi Split Inverter Samsung 1x9000 Btus + 1x12000 Btus Quente/frio 220V Monofasico AJ050AXJ2KH/AZ??????? você consegue climatizar até dois ambientes, utilizando apenas uma unidade externa. O modelo permite que a instalação possa ser feita em diversos locais, como: quartos, salas residenciais, salas comerciais, entre outros.','15','1.999','multi-split-samsung.jpg','Sim'); 
+
+
+
+
+insert into produtos Values ('16', '4','Sistema gerador fotovoltaico microinversor yc1000 220v c/ 4 módulos de 540w le ledgold-msmgz','KIT DE MICRONVERSOR YC1000 220V COM 4 MÓDULOS DE 540W RISEN-MGZCONTÉM: 1 - Microinversor APSystem YC10004 - Módulos fotovoltaico Risen 540W 1 - Cabo tronco para YC10001 - Terminal de proteção "end cap" YC10001 - Caixa de junção AC (plástica ou metal) ESPECIFICAÇÕES: Material : MONOCRISTALINOPotência : 540WTensão : 220VDimensões : placa -> cm x cm x cm (AxLxP) GARANTIAExplicação dos termos de garantiaCobertura da garantia limitadaA garantia do componente ou equipamento cobrirá qualquer parte, peça ou módulo que vier a apresentar defeito de fabricação, os quais serão substituídos por outros iguais ou equivalentes, de igual ou melhor qualidade, imediatamente, ou dentro do prazo estabelecido pelo Código de Defesa do Consumidor.','15','11.740','energia_solar.jpg','Sim'); 
+insert into produtos Values ('17', '4','Kit energia solar 1.78kwp-deye telhado FIB/MAD consumo médio 200kwh - Ecomagnus','Kit energia solar 1.78kwp-deye telhado FIB/MAD consumo médio 200kwh Consumo médio de 1.78KWP – Conta de até R$ 250,00. 03 - Módulos Solares 540W byd bifacial 01 – Micro Inversor solar deye 3000 Estrutura metálica completa','15','15.100','energia_solar_casa.jpg','Sim'); 
+insert into produtos Values ('18', '4','Kit energia solar 5.84kwp-deye telhado FIB/MAD consumo médio 6000kwh - Ecomagnus','Kit energia solar 5.84kwp-deye telhado FIB/MAD consumo médio 6000kwh Consumo médio de 5.84KWP – Conta de até R$ 650,00. 08 - Módulos Solares 540W byd bifacial 01 – Inversor solar deye 4k Estrutura metálica completa','15','30.447','energia_solar_dia.jpg','Sim'); 
+insert into produtos Values ('19', '4','kit energia solar 1.60kwp-deye telhado fib/mad consumo médio 160kwh','kit energia solar 1.60kwp-deye telhado fib/mad consumo médio 160kwh Consumo médio de 1.60KWP – Conta de até R$ 180,00. 04 - Módulos Solares 540W byd bifacial 01 – Micro inversor deye 2000 Estrutura metálica completa','15','11.873','energia_solar_img.jpg','Sim'); 
+insert into produtos Values ('20', '4','Kit Energia Solar Off Grid Até 9600wh/dia - Resun','Kit Energia Solar OFF Grid até 9600 Wh / Dia AEnergy Shopoferece aos seus clientes oKit Energia Solar OFF Grid até 9600 Wh / Dia. Uma solução completa que inclui todos os componentes básicos de um sistema de energia solar gerador fotovoltaico off gridpara o consumo diário de até 9600 Wh.','15','30.923','energia_solar_servico.jpg','Sim'); 
