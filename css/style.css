@@ -221,56 +221,91 @@ img{
 }
 /* #################### fim apresentação de produtos ################### */
 
-/* ###################### começo footer ################## */
+/* ###################### começo form ################# */
 .footer{
    display: flex;
+   background-color: #fff;
    
 }
 .img_footer{
    display: flex;
    width: 50%;
-   margin-top: 20px;
-   margin-right: 20px;
-   margin-bottom: 20px;
+   margin: 20px;
    border-radius: 10px;
 }
 .form_footer{
    display: flex;
    align-items: center;
    flex-direction: column;
-   margin-left: 100px;
+   margin-bottom: 70px;
 }
  
 #linha_footer{
    display: flex;
-   width: 20%;
+   width: 200px;
 }
 
 .transparente{
    background-color: transparent;
-   border: none;
-   border-bottom: 1px solid black;
-   width: 290px;
+   border-radius: 4px;
+   width: 350px;
+   height: 30px;
    font-size: 11pt;
 }
 .btn_form{
    width: 200px;
    height: 40px;
    background-color: #57c7cf;
+   
 }
 .menssagem{
    background-color: transparent;
-   border: none;
-   border-bottom: 1px solid black;
    width: 350px;
    font-size: 11pt;
+   height: 45px;
 }
-.colum{
+.row{
    display: flex;
    flex-direction: row;
-   justify-content: space-evenly;
+   justify-content: space-between;
 }
-/* ###################### fim footer ################## */
+#name{
+   margin-right: 30px;
+}
+.btn_form {
+   background-color: transparent;
+   width: 200px;
+   height: 40px;
+   border: 2px solid rgb(172, 158, 158);
+   font-size: 13pt;
+   cursor: pointer;
+   text-decoration: none;
+   padding: 10px 20px;
+   transition: all 0.5s ease-out;
+   box-shadow: none;
+ }
+#btn-center{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+ .btn_form:hover {
+   background-color: transparent;
+   text-decoration: underline;
+   border: none;
+   box-shadow: 0 0 0 8px rgb(18, 219, 209);
+   border-radius: 10px;
+   width: 220px;
+   height: 50px;
+ }
+.formulario{
+   margin-left: 40px;
+} 
+
+.btn_topo
+ 
+/* ###################### fim form ################# */
 
 /* ################### detalhes de produto ################ */
 .btn-voltar{

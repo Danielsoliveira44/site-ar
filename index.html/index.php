@@ -171,12 +171,8 @@ $solar = $conn->query('select * from vw_produtos where id_tipo = 4');
             <?php } ?>
     </div>
       </section>
-            <div class="form_footer" id="contato">
-                <h1>Contato</h1>
-                <img src="../linha.svg" id="linha_footer" alt="linha a baixo do contato">
-                <?php include ('form.php')?>
-        </div>
-      </div>
+      
+      <?php include ('form.php')?>
       <script>
         var app = angular.module('meuApp', []);
         app.controller('meuController', function($scope) {
