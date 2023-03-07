@@ -6,11 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Contato</title>
 </head>
 <body>
-<div class="">
+    
+<div class="footer">
+        <div class="img_footer">
+            <img src="../img/footer-ar-condicionado.jpg" alt="">
+        </div>
+
+<div>
             <div class="panel-footer" style="background: none;">
                     <h4>ENVIE-NOS UMA MENSAGEM</h4>
                     <form action="rodape_contato_envia.php" name="form_contato" method="post">

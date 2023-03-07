@@ -3,7 +3,7 @@ p{
    align-items: center;
 }
 body{
-   background-color: #f5f0f0;
+   background-color: #c7c4c4;
    font-family: 'texto', sans-serif;
    padding: 0px;
    margin: 0px;}
@@ -46,11 +46,11 @@ li{
 /* ################### inicio do primeiro banner ################ */
 .banner_solar{
    display: flex;
-   margin: 5px;
+   margin: 6px;
 }
 .banner_solar img{
-   border-radius: 5px;
-   width: 950px;
+   border-radius: 7px;
+  
 }
 #img_banner_first{
    display: flex;
@@ -59,48 +59,45 @@ li{
 }
 /* ################### fim do primeiro banner ################ */
 /* ################## inicio do visao ##################  */
-.visao{
-   background-color:rgb(7, 49, 235);
-   width: 100%;
-   height: 300px;
+
+.bg-mvv {
+   background: url(../img/banner.jpg) fixed no-repeat;
+   height: 250px;
 }
-.img{
+
+.mvv-container {
    display: flex;
    justify-content: space-evenly;
-   text-align: center;
    align-items: center;
 }
-#img-1{
-   margin-top: 50px;
-   width: 50px;
-   height: 50px;
-   border: 1px black solid;
-   background-color: rgb(226, 0, 38);
+
+.mvv-conteudo {
+   font-size: 18pt;
+   color: rgb(255, 255, 255);
+   font-family: 'rexila';
+   margin-top: 90px;
 }
-#img-2{
-   margin-top: 50px;
-   width: 50px;
-   height: 50px;
-   border: 1px black solid;
-   background-color: rgb(226, 0, 38);
-}
-#img-3{
-   margin-top: 50px;
-   width: 50px;
-   height: 50px;
-   border: 1px black solid;
-   background-color: rgb(226, 0, 38);
+
+.mvv-textos {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-size: 12pt;
 }
 /* ################## fim do visao ##################  */
 /* ################ começo serviço ################## */
-.servico{
-   background-color: #fff;
+.servicos{
+   background-color: #fff8f8;
    width: 100%;
    display: flex;
-   flex-direction: row;
+   /* flex-direction: row;
+   align-items: center;
+   justify-content: center; */
+
+}
+.titulo-servicos{
+   display: flex;
    align-items: center;
    justify-content: center;
-
+   flex-direction: column;
 }
 .srv_img{
    align-items: center;
@@ -119,6 +116,32 @@ li{
    width: 200px;
    height: 200px;
 }
+.linha_servico{
+   display: flex;
+   width: 10%;
+   justify-content: center;
+   align-items: center;
+}
+.w13{
+   display: flex;
+   width: 25%;
+}
+.grade-servicos{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+.item-servico{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+
+
+
 /* ################ fim serviço ################## */
 /* ################## começo sobre nós #################### */
 .sobre_nos{
@@ -161,7 +184,7 @@ li{
 /* ################ inicio da apresentação de produtos ################### */
 #produtos_txt{
    display: flex;
-   justify-content: center;
+   text-align: center;
    font-size: 22pt;  
    margin-top: 30px;
 }
@@ -204,6 +227,7 @@ img{
 .w95{
    width: 95%;
    margin: 20px auto;
+   display: flex;
 }
 .w95 img{
    border-radius: 10px;
@@ -212,22 +236,23 @@ img{
    width: 100%;
    margin: 20px auto;
 }
+.imagens-produtos{
+   display: flex;
+}
 /* #################### fim apresentação de produtos ################### */
 
 /* ###################### começo footer ################## */
 .footer{
    display: flex;
+   
 }
 .img_footer{
-   border: 1px solid black;
    display: flex;
-   align-items: center;
-   justify-content: center;
-   border: 1px black solid;
-   width: 600px;
-   height: 600px;
-   margin-left: 5px;
-   margin-bottom: 5px
+   width: 50%;
+   margin-top: 20px;
+   margin-right: 20px;
+   margin-bottom: 20px;
+   border-radius: 10px;
 }
 .form_footer{
    display: flex;
@@ -238,8 +263,63 @@ img{
  
 #linha_footer{
    display: flex;
-   width: 50%;
-   border: 1px black solid;
+   width: 20%;
 }
 
 /* ###################### fim footer ################## */
+
+/* ################### detalhes de produto ################ */
+.btn-voltar{
+   display: flex;
+   width: 70px;
+   margin: 10px;
+}
+.container-main{
+   display: flex;
+   
+}
+
+#preco{
+   display: flex;
+}
+.img_datalhes{
+   display: flex;
+   width: 20%;
+}
+
+
+
+#container-detalhes{
+   margin: 25px;
+   font-size: 20pt;
+}
+
+
+#container-main{
+   border-radius: 25px;
+   margin: 15px;
+   display: flex;
+   justify-content: space-between;
+}
+
+#container-main img{
+   width: 30%;
+   border-radius: 20px;
+}
+
+#container-main div{
+   margin: 25px;
+   font-size: 16pt;
+   display: flex;
+   flex-direction: column;
+}
+
+#preco {
+   margin-top: 70px;
+}
+
+.preco-original {
+   display: flex;
+   font-size: 14pt;
+}
+
