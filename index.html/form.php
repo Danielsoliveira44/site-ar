@@ -21,34 +21,31 @@
                     <h4>ENVIE-NOS UMA MENSAGEM</h4>
                     <form action="rodape_contato_envia.php" name="form_contato" method="post">
                         <p>
-                            <span class="input-group">
-                                <span class="input-group-addon" id="basic-addon1">
-                                    <span class="glyphicon glyphicon-user"></span>
+                            <span >
+                                <span  id="basic-addon1">
                                 </span>
-                                <input type="text" name="nome_contato" placeholder="Nome" aria-describedby="basic-addon1" class="form-control" required>
+                                <input type="text" name="nome_contato" placeholder="Nome" aria-describedby="basic-addon1" class="transparente" required>
                             </span>
                         </p>
                         <p>
-                            <span class="input-group">
-                                <span class="input-group-addon" id="basic-addon2">
-                                    <span class="glyphicon glyphicon-envelope"></span>
+                            <span >
+                                <span  id="basic-addon2">
                                 </span>
-                                <input type="email" name="email_contato" placeholder="Email" aria-describedby="basic-addon2" class="form-control" required>
+                                <input type="email" name="email_contato" placeholder="Email" aria-describedby="basic-addon2" class="transparente" required>
                             </span>
                         </p>
                         <p>
-                            <span class="input-group">
-                                <span class="input-group-addon" id="basic-addon3">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                            <span >
+                                <span  id="basic-addon3">
                                 </span>
-                                <textarea name="comentario_contato" cols="30" rows="5" placeholder="Menssagem" aria-describedby="basic-addon3" class="form-control" required>
+                                <textarea name="comentario_contato" cols="30" rows="5" placeholder="Menssagem" aria-describedby="basic-addon3" class="transparente" required>
                              </textarea>
                             </span>
                         </p>
                         <p>
-                            <button class="btn btn-danger btn-block" aria-label="enviar" role="button">
+                            <button class="btn_form" aria-label="enviar" role="button">
                                 Enviar
-                                <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                                <span class=" aria-hidden="true></span>
                             </button>
                         </p>
                     </form>

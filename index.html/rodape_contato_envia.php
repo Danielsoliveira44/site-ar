@@ -30,11 +30,7 @@ try
     $mail->Body    = $_POST['comentario_contato'];
     // $mail->AltBody =  $_POST.'[comentario_contato]';
     // Enviar
-    $email = $_POST["email"];  
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Endereço de email inválido.";
-        exit;
-    }
+    
 }
 
 

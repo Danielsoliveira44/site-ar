@@ -3,7 +3,7 @@ p{
    align-items: center;
 }
 body{
-   background-color: #c7c4c4;
+   background-color: #e6e2e2;
    font-family: 'texto', sans-serif;
    padding: 0px;
    margin: 0px;}
@@ -99,49 +99,29 @@ li{
    justify-content: center;
    flex-direction: column;
 }
-.srv_img{
-   align-items: center;
-
+.div-grid { 
+   display: grid; 
+   grid-template-columns: auto auto auto auto auto auto; 
+   padding: 10px; 
+   margin-left: 30px; 
+   margin-top: 10px;
 }
-.srv_img img{
-   width: 200px;
-   height: 200px;
-   
+.servicos-grid { 
+   border-radius: 10px; 
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}.txt-grid{ 
+   text-align: center; 
+   margin-top: 20px; 
+   padding: 20px; 
+   color: #38444d;
 }
-.srv_txt{
+.linha2{
+   width: 15%;
    display: flex;
    align-items: center;
    justify-content: center;
-   border: 1px black solid;
-   width: 200px;
-   height: 200px;
+   text-align: center;
 }
-.linha_servico{
-   display: flex;
-   width: 10%;
-   justify-content: center;
-   align-items: center;
-}
-.w13{
-   display: flex;
-   width: 25%;
-}
-.grade-servicos{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-}
-.item-servico{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-
-
-
-
-
 /* ################ fim serviço ################## */
 /* ################## começo sobre nós #################### */
 .sobre_nos{
@@ -266,6 +246,30 @@ img{
    width: 20%;
 }
 
+.transparente{
+   background-color: transparent;
+   border: none;
+   border-bottom: 1px solid black;
+   width: 200px;
+   font-size: 11pt;
+}
+.btn_form{
+   width: 200px;
+   height: 40px;
+   background-color: #57c7cf;
+}
+.menssagem{
+   background-color: transparent;
+   border: none;
+   border-bottom: 1px solid black;
+   width: 350px;
+   font-size: 11pt;
+}
+.colum{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
 /* ###################### fim footer ################## */
 
 /* ################### detalhes de produto ################ */

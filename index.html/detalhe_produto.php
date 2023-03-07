@@ -32,24 +32,15 @@ include "../conn/connect.php";
             <img src="../img/<?php echo $row['imagem']; ?>" class="img_datalhes" alt="">
             <div>
                 <p>
-                    <h2><?php echo $row['descricao']; ?></h2> <br> <br>
+                    <h3><?php echo $row['descricao']; ?></h3> <br> <br>
                     Quantidade Disponível: <?php echo $row['quantidade']; ?> em estoque
                 </p>
-                <?php
-                    // Define o valor do desconto como 10%
-                        $desconto = 0.1;
-                    // Obtém o custo total do produto
-                        $preco = $row['preco'];
-                    // Calcula o valor com desconto
-                        $preco_com_desconto = $preco * (1 - $desconto);
-                ?>
+                 <hr width="100%">
                 <p id="preco">
                     <h2>
                         PREÇO: R$
-                        <?php echo number_format($preco_com_desconto, 3, '.', ','); // formata para exibir com duas casas decimais e separador de milhar com ponto ?>
-                        <span class="preco-original">
-                            <strike>R$<?php echo number_format($preco, 3, '.', ','); ?></strike>
-                        </span>
+                        <?php echo $row['preco']; ?>
+                        
                     </h2>
                 </p>
             </div>
