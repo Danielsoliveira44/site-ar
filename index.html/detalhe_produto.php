@@ -16,7 +16,7 @@ include "../conn/connect.php";
 </head>
 <body>
     <?php include "header.html"?>
-<div>
+<div class="desc_prod">
         <!-- Top para voltar -->
         <h2>
             <a href="javascript:window.history.go(-1)" role="button" >
@@ -45,6 +45,7 @@ include "../conn/connect.php";
                 </p>
             </div>
         </div>
+</div>
         <?php include 'form.php';?>         
 </body>
 </html>
