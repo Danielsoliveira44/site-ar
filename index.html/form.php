@@ -13,7 +13,7 @@
     
 <div class="footer">
         <div class="img_footer">
-            <img src="../img/footer-ar-condicionado.jpg" alt="">
+            <img src="../img/footer-ar-condicionado.jpg" id="ar_footer" alt="">
         </div>
 
 <div>
@@ -23,6 +23,11 @@
                 <img src="../linha.svg" id="linha_footer" alt="linha a baixo do contato">
         </div>
         <div class="formulario">
+            <div class="endereco">
+            <a href="https://goo.gl/maps/P5oGcGS5WagKEp9o6"><h5>ENDEREÇO</h5></a>
+            <h4>ENTRE EM CONTATO</h4>
+
+            </div>
                     <h4>ENVIE-NOS UMA MENSAGEM</h4>
                     <form action="rodape_contato_envia.php" name="form_contato" method="post">
                        <div class="row">
@@ -56,11 +61,23 @@
                             </button>
                         </p>
                     </form>
+                    <div class="social">
+            <a href="https://www.facebook.com/" id="face" target="_blank" class="social-icon instagram">
+                <img src="../img/social/facebook.png" alt="icon facebook">
+            </a>
+            <a href="https://www.instagram.com/" id="insta" target="_blank" class="social-icon facebook">
+                <img src="../img/social/instagram.png" alt="icon instagram">
+            </a>
+        </div>
                     </div>
             </div>
         </div>
-        <div class="btn_topo">
-        <a href="index.php#home"></a>
+        
+</div>
+       
+        <div class="topo_form">
+           <a href="index.php"><img src="../img/btn_topo.png" alt="botao para home"></a> 
         </div>
+</div>
 </body>
 </html>
