@@ -76,7 +76,7 @@
 </div>
        
         <div class="topo_form">
-           <a href="index.php"><img src="../img/btn_topo.png" alt="botao para home"></a> 
+           <a href="#home"><img src="../img/btn_topo.png" alt="botao para home"></a> 
         </div>
 </div>
 </body>
