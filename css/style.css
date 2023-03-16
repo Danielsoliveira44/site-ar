@@ -50,7 +50,7 @@ li{
 }
 .banner_solar img{
    border-radius: 17px;
-  
+  width: 54%;
 }
 #img_banner_first{
    display: flex;
